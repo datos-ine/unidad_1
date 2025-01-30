@@ -1,0 +1,38 @@
+project:
+  type: website
+  
+  
+website:
+  title: "Unidad 1"
+  back-to-top-navigation: true
+  sidebar: 
+    search: true
+    logo: images/logos_ine.svg
+    contents: 
+      - index.qmd
+      - section: "Referencias"
+        href: bibliografia.qmd
+  body-header: |
+    <center> Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanzado </br>
+    © 2025 Instituto Nacional de Epidemiología "Dr. Juan H. Jara" (ANLIS) - 
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1"> CC BY-NC 4.0 </a>
+    ![](images/cc01.svg){width="3%"}
+    ![](images/cc02.svg){width="3%"}
+    ![](images/cc03.svg){width="3%"} 
+    </br>
+    </br>
+    </center>
+
+format:
+  html:
+    theme: cosmo
+    lang: es
+    css: styles.css
+    toc: true
+    toc-location: right
+    toc-title: "Contenidos"
+    search: true
+    author: 
+    - "Christian Ballejo"
+editor: visual
+
