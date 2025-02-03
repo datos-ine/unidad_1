@@ -10,8 +10,11 @@ website:
     logo: images/logos_ine.svg
     contents: 
       - index.qmd
-      - section: "Referencias"
-        href: bibliografia.qmd
+      - pasos.qmd
+      - tidyverse.qmd
+      - EDA.qmd
+      - estilo.qmd
+
   body-header: |
     <center> Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanzado </br>
     © 2025 Instituto Nacional de Epidemiología "Dr. Juan H. Jara" (ANLIS) - 
@@ -34,5 +37,5 @@ format:
     search: true
     author: 
     - "Christian Ballejo"
-editor: visual
+
 
