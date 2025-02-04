@@ -335,7 +335,7 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <li>Los títulos de los argumentos pueden escribirse y mediante un igual agregar el valor correspondiente. También se puede omitir el título del argumento y escribir directamente el valor, pero en este caso, hay que respetar el orden definido por la función.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">funcion</span>(<span class="at">arg1=</span><span class="dv">32</span>, <span class="at">arg2=</span><span class="dv">5</span>, <span class="at">arg3=</span><span class="dv">65</span>,...)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">funcion</span>(<span class="at">arg1 =</span> <span class="dv">32</span>, <span class="at">arg2 =</span> <span class="dv">5</span>, <span class="at">arg3 =</span> <span class="dv">65</span>,...)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>es igual a hacer:</p>
 <div class="cell" data-layout-align="center">
@@ -346,7 +346,7 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <li>Con los argumentos se deben cumplir las mismas reglas que en todo el lenguaje. Los valores numéricos, lógicos, especiales y objetos van escritos en forma directa y cuando escribimos caracteres (texto) van necesariamente encerrados entre comillas.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">funcion</span>(<span class="at">arg1=</span><span class="dv">3</span>, <span class="at">arg2=</span><span class="cn">NA</span>, <span class="at">arg3=</span><span class="cn">TRUE</span>, <span class="at">arg4=</span><span class="st">"less"</span>, <span class="at">arg5=</span>x,...)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">funcion</span>(<span class="at">arg1 =</span> <span class="dv">3</span>, <span class="at">arg2 =</span> <span class="cn">NA</span>, <span class="at">arg3 =</span> <span class="cn">TRUE</span>, <span class="at">arg4 =</span> <span class="st">"less"</span>, <span class="at">arg5 =</span> x, ...)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="librerías-paquetes" class="level2">
@@ -383,7 +383,7 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 </div>
 <p>Si nos olvidamos de separar los argumentos con la coma</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span><span class="dv">3</span> <span class="at">times =</span> <span class="dv">4</span>)</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> <span class="dv">3</span> <span class="at">times =</span> <span class="dv">4</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> unexpected symbol <span class="cf">in</span> <span class="st">"rep(x =3 times"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -548,8 +548,8 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <p>Existen de dos tipos: factores nominales y factores ordinales. En el caso del segundo se establece un orden en los niveles.</p>
 <p>Normalmente, obtenemos un tipo factor de convertir un vector u otro tipo de objeto con caracteres, pero para mostrar un ejemplo lo realizamos con la función <code>factor()</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>factor1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"a"</span>,<span class="st">"c"</span>,<span class="st">"b"</span>,<span class="st">"a"</span>), </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>))</span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>factor1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>, <span class="st">"c"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>), </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>factor1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] a b a c b a
@@ -898,7 +898,7 @@ Levels: a b c</code></pre>
 </div>
 <p>Otra manera es por medio de la función <code>seq()</code> que tiene como argumentos principales <em>from</em>, <em>to</em> y <em>by</em></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">20</span>,<span class="at">by =</span> <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">20</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
 </div>
@@ -1050,7 +1050,7 @@ Levels: No Si</code></pre>
 <p>Pero si nos encontramos frente a una variable cualitativa ordinal vamos a necesitar indicarle a la función cual es el orden de las categorías.</p>
 <p>Vamos al siguiente ejemplo:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>salud <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>salud <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>salud</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4 3 1 3 2 2 3 3 1</code></pre>
@@ -1060,8 +1060,8 @@ Levels: No Si</code></pre>
 <p>Vamos a crear el factor <code>nivsalud</code> a partir de este vector, así:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>nivsalud <span class="ot">&lt;-</span> <span class="fu">factor</span>(salud,</span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="fu">c</span>(<span class="st">"Mala"</span>,<span class="st">"Regular"</span>,<span class="st">"Buena"</span>,<span class="st">"Muy buena"</span>),</span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Mala"</span>, <span class="st">"Regular"</span>, <span class="st">"Buena"</span>, <span class="st">"Muy buena"</span>),</span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
 <span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a>nivsalud</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Muy buena Buena     Mala      Buena     Regular   Regular   Buena    
@@ -1081,8 +1081,8 @@ Levels: Mala Regular Buena Muy buena</code></pre>
 <p>Para indicarle orden hay que agregar otro argumento dentro de la función anterior:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>nivsalud <span class="ot">&lt;-</span> <span class="fu">factor</span>(salud,</span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="fu">c</span>(<span class="st">"Mala"</span>,<span class="st">"Regular"</span>,<span class="st">"Buena"</span>,<span class="st">"Muy buena"</span>),</span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="at">ordered=</span>T)</span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Mala"</span>, <span class="st">"Regular"</span>, <span class="st">"Buena"</span>, <span class="st">"Muy buena"</span>),</span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ordered =</span> T)</span>
 <span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a>nivsalud</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Muy buena Buena     Mala      Buena     Regular   Regular   Buena    
@@ -1098,10 +1098,10 @@ Levels: Mala &lt; Regular &lt; Buena &lt; Muy buena</code></pre>
 <p>Vamos a crear un dataframe llamado <code>datos</code> con 4 variables de 5 registros, la primera será un identificador ID numérico entero correlativo, la segunda variable EDAD, la tercera SEXO codificada como V para varón y M para mujer y la tercera TRABAJA de formato lógica donde T (TRUE) corresponde a “Si trabaja” y F (FALSE) a “No trabaja”:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>     <span class="co"># construimos el vector id</span></span>
-<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>,<span class="dv">43</span>,<span class="dv">12</span>,<span class="dv">65</span>,<span class="dv">37</span>)     <span class="co"># construimos el vector edad</span></span>
-<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"V"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>,<span class="st">"V"</span>,<span class="st">"M"</span>)   <span class="co"># construimos el vector sexo</span></span>
-<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>trabaja <span class="ot">&lt;-</span> <span class="fu">c</span>(T,T,F,F,T)    <span class="co"># construimos el vector trabaja</span></span>
-<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id,edad,sexo,trabaja)   <span class="co"># construimos el dataframe datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">43</span>, <span class="dv">12</span>, <span class="dv">65</span>, <span class="dv">37</span>)     <span class="co"># construimos el vector edad</span></span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"V"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"V"</span>, <span class="st">"M"</span>)   <span class="co"># construimos el vector sexo</span></span>
+<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>trabaja <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F, T)    <span class="co"># construimos el vector trabaja</span></span>
+<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id, edad, sexo, trabaja)   <span class="co"># construimos el dataframe datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Tengamos en cuenta que habitualmente leemos archivos externos que serán dataframes en R y que esta forma de creación de la estructura de datos es solo con fines del ejemplo.</p>
 <p>Aplicamos algunas de las funciones que vimos con la matrices:</p>

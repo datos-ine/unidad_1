@@ -132,7 +132,7 @@ funcion(arg1, arg2, arg3,...)
 -   Los títulos de los argumentos pueden escribirse y mediante un igual agregar el valor correspondiente. También se puede omitir el título del argumento y escribir directamente el valor, pero en este caso, hay que respetar el orden definido por la función.
 
 ```{r, eval=F}
-funcion(arg1=32, arg2=5, arg3=65,...)
+funcion(arg1 = 32, arg2 = 5, arg3 = 65,...)
 ```
 
 es igual a hacer:
@@ -146,7 +146,7 @@ siempre que se respete el mismo orden.
 -   Con los argumentos se deben cumplir las mismas reglas que en todo el lenguaje. Los valores numéricos, lógicos, especiales y objetos van escritos en forma directa y cuando escribimos caracteres (texto) van necesariamente encerrados entre comillas.
 
 ```{r, eval=F}
-funcion(arg1=3, arg2=NA, arg3=TRUE, arg4="less", arg5=x,...)
+funcion(arg1 = 3, arg2 = NA, arg3 = TRUE, arg4 = "less", arg5 = x, ...)
 ```
 
 ## Librerías (paquetes)
@@ -192,7 +192,7 @@ Error: Incomplete expression: rep(x = 3, times = 4
 Si nos olvidamos de separar los argumentos con la coma
 
 ```{r, eval=FALSE}
-rep(x =3 times = 4)
+rep(x = 3 times = 4)
 
 Error: unexpected symbol in "rep(x =3 times"
 ```
@@ -370,8 +370,8 @@ Existen de dos tipos: factores nominales y factores ordinales. En el caso del se
 Normalmente, obtenemos un tipo factor de convertir un vector u otro tipo de objeto con caracteres, pero para mostrar un ejemplo lo realizamos con la función `factor()`.
 
 ```{r}
-factor1 <- factor(x=c("a","b","a","c","b","a"), 
-                  levels = c("a","b","c"))
+factor1 <- factor(x = c("a", "b", "a", "c", "b", "a"), 
+                  levels = c("a", "b", "c"))
 factor1
 ```
 
@@ -639,7 +639,7 @@ La primera es mediante un operador que entre dos valores produce un intervalo se
 Otra manera es por medio de la función `seq()` que tiene como argumentos principales *from*, *to* y *by*
 
 ```{r}
-seq(from = 1, to = 20,by = 2)
+seq(from = 1, to = 20, by = 2)
 ```
 
 La ejecución de la línea anterior produce una secuencia de números comenzando en el 1 y finalizando en el 20 de dos en dos.
@@ -763,7 +763,7 @@ Pero si nos encontramos frente a una variable cualitativa ordinal vamos a necesi
 Vamos al siguiente ejemplo:
 
 ```{r}
-salud <- c(4,3,1,3,2,2,3,3,1)
+salud <- c(4, 3, 1, 3, 2, 2, 3, 3, 1)
 salud
 ```
 
@@ -773,8 +773,8 @@ Vamos a crear el factor `nivsalud` a partir de este vector, así:
 
 ```{r}
 nivsalud <- factor(salud,
-                   label=c("Mala","Regular","Buena","Muy buena"),
-                   levels= 1:4)
+                   label = c("Mala", "Regular", "Buena", "Muy buena"),
+                   levels = 1:4)
 nivsalud
 ```
 
@@ -792,8 +792,8 @@ Para indicarle orden hay que agregar otro argumento dentro de la función anteri
 
 ```{r}
 nivsalud <- factor(salud,
-                   label=c("Mala","Regular","Buena","Muy buena"),
-                   levels= 1:4,ordered=T)
+                   label = c("Mala", "Regular", "Buena", "Muy buena"),
+                   levels = 1:4, ordered = T)
 nivsalud
 ```
 
@@ -807,10 +807,10 @@ Vamos a crear un dataframe llamado `datos` con 4 variables de 5 registros, la pr
 
 ```{r}
 id <- 1:5     # construimos el vector id
-edad <- c(23,43,12,65,37)     # construimos el vector edad
-sexo <- c("V","M","M","V","M")   # construimos el vector sexo
-trabaja <- c(T,T,F,F,T)    # construimos el vector trabaja
-datos <- data.frame(id,edad,sexo,trabaja)   # construimos el dataframe datos
+edad <- c(23, 43, 12, 65, 37)     # construimos el vector edad
+sexo <- c("V", "M", "M", "V", "M")   # construimos el vector sexo
+trabaja <- c(T, T, F, F, T)    # construimos el vector trabaja
+datos <- data.frame(id, edad, sexo, trabaja)   # construimos el dataframe datos
 ```
 
 Tengamos en cuenta que habitualmente leemos archivos externos que serán dataframes en R y que esta forma de creación de la estructura de datos es solo con fines del ejemplo.
