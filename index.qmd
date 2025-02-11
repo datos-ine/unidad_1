@@ -4,31 +4,12 @@ title: "Unidad 1: Introducción a R"
 
 ```{r}
 #| echo: false
-# opciones globales
-knitr::opts_chunk$set(
-  echo = T,
-  message = F,
-  warning = F,
-  fig.align = "center",
-  dpi = 300
-)
-
-showtext::showtext_opts(dpi = 300)
-
-# paquetes
-pacman::p_load(
-  flextable,
-  tidyverse
-)
+source("setup.R")
 ```
 
-<center>
+![[Artwork por \@allison_horst](https://allisonhorst.com/)](images/dibujo.png){fig-align="center"}
 
-![[Artwork por \@allison_horst](https://allisonhorst.com/)](images/dibujo.png)
-
-</center>
-
-Estos materiales, que forman parte del modulo 1 del **Curso de Epidemiología Avanzada**, no pretenden abarcar todos los temas relevantes que encontraríamos en un curso de lenguaje R, sino que persigue el fin de mostrar solo los más relevantes y necesarios del lenguaje para su aplicación en los módulos siguientes.
+Estos materiales, que forman parte del Módulo 1 del **Curso de Epidemiología Avanzada**, no pretenden abarcar todos los temas relevantes que encontraríamos en un curso de lenguaje R, sino que persigue el fin de mostrar solo los más relevantes y necesarios del lenguaje para su aplicación en los módulos siguientes.
 
 ## Qué es R?
 
@@ -94,7 +75,7 @@ Todas las líneas de R en la consola comienzan con el prompt (\*) `>`
 
 La documentación es una tarea de mucha importancia en cualquier lenguaje de programación, ya que nos permite entender que estamos haciendo en el script, también nos sirve para el futuro mantenimiento o para la reutilización del código elaborado, tanto para otros usuarios como para nosotros mismos.
 
-La forma de documentar los scripts de código en R es utilizando comentarios. Toda línea que comienza con el símbolo `#` es entendido por el interprete como un comentario y los caracteres que sigan a ese símbolo no sean tenidos en cuenta cuando se ejecute ese código.
+La forma de documentar los scripts de código en R es utilizando comentarios. Toda línea que comienza con el símbolo `#` es entendido por el interprete como un comentario y los caracteres que sigan a ese símbolo no sean tenidos en cuenta cuando se ejecute ese código:
 
 ```{r}
 # esto es una línea de comentario y el intérprete no la ejecuta
@@ -112,7 +93,7 @@ La mayoría de las ofrecidas en los paquetes (librerías) están elaboradas con 
 
 Toda función tiene un nombre y normalmente recibe argumentos o parámetros obligatorios u opcionales, que deben ser escritos **entre paréntesis y separados por comas**. Incluso algunas de ellas que no tienen asociado argumentos necesitan, en su sintaxis, a los paréntesis `()`.
 
-Siempre una función devuelve un resultado, un valor o realiza una acción.
+Siempre una función devuelve un resultado, un valor o realiza una acción:
 
 ```{r}
 #| eval: false
@@ -125,29 +106,35 @@ Como el interprete de R no permite errores en la sintaxis de las expresiones, de
 
 -   La sintaxis habitual de una función y sus argumentos es la siguiente:
 
-```{r, eval=F}
-funcion(arg1, arg2, arg3,...)
-```
+    ```{r}
+    #| eval: false
+    funcion(arg1, arg2, arg3,...)
+    ```
 
--   Los títulos de los argumentos pueden escribirse y mediante un igual agregar el valor correspondiente. También se puede omitir el título del argumento y escribir directamente el valor, pero en este caso, hay que respetar el orden definido por la función.
+<!-- -->
 
-```{r, eval=F}
-funcion(arg1 = 32, arg2 = 5, arg3 = 65,...)
-```
+-   Los títulos de los argumentos pueden escribirse y mediante un igual agregar el valor correspondiente. También se puede omitir el título del argumento y escribir directamente el valor, pero en este caso, hay que respetar el orden definido por la función:
 
-es igual a hacer:
+    ```{r}
+    #| eval: false
+    funcion(arg1 = 32, arg2 = 5, arg3 = 65,...)
+    ```
 
-```{r, eval=F}
-funcion(32, 5, 65,...)
-```
+    es igual a hacer:
 
-siempre que se respete el mismo orden.
+    ```{r}
+    #| eval: false
+    funcion(32, 5, 65,...)
+    ```
 
--   Con los argumentos se deben cumplir las mismas reglas que en todo el lenguaje. Los valores numéricos, lógicos, especiales y objetos van escritos en forma directa y cuando escribimos caracteres (texto) van necesariamente encerrados entre comillas.
+    siempre que se respete el mismo orden.
 
-```{r, eval=F}
-funcion(arg1 = 3, arg2 = NA, arg3 = TRUE, arg4 = "less", arg5 = x, ...)
-```
+-   Con los argumentos se deben cumplir las mismas reglas que en todo el lenguaje. Los valores numéricos, lógicos, especiales y objetos van escritos en forma directa y cuando escribimos caracteres (texto) van necesariamente encerrados entre comillas:
+
+    ```{r}
+    #| eval: false
+    funcion(arg1 = 3, arg2 = NA, arg3 = TRUE, arg4 = "less", arg5 = x, ...)
+    ```
 
 ## Librerías (paquetes)
 
@@ -175,7 +162,7 @@ Se dice que hay un error de sintaxis, cuando ejecutamos una línea de código qu
 
 Habitualmente los errores de sintaxis se deben a que falta o sobra algún elemento necesario en la estructura de una función (comas, parentesis, llaves, corchetes, comillas, etc.)
 
-Por ejemplo la función `rep()` repite valores una cantidad de veces. Tiene dos argumentos, `x` donde se coloca el valor a repetir y `times` donde se define la cantidad de veces.
+Por ejemplo la función `rep()` repite valores una cantidad de veces. Tiene dos argumentos, `x` donde se coloca el valor a repetir y `times` donde se define la cantidad de veces:
 
 ```{r}
 rep(x = 3, times = 4) # repetimos 4 veces 3 con rep()
@@ -183,15 +170,17 @@ rep(x = 3, times = 4) # repetimos 4 veces 3 con rep()
 
 Si nos olvidamos de cerrar el paréntesis...
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 rep(x = 3, times = 4
     
 Error: Incomplete expression: rep(x = 3, times = 4
 ```
 
-Si nos olvidamos de separar los argumentos con la coma
+Si nos olvidamos de separar los argumentos con la coma:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 rep(x = 3 times = 4)
 
 Error: unexpected symbol in "rep(x =3 times"
@@ -199,8 +188,9 @@ Error: unexpected symbol in "rep(x =3 times"
 
 Si en lugar de escribir x como primer argumento y escribimos otra letra...
 
-```{r, eval=FALSE}
-rep(y =3, times = 4)
+```{r}
+#| eval: false
+rep(y = 3, times = 4)
 
 Error in rep(y = 3, times = 4) : 
   attempt to replicate an object of type 'symbol'
@@ -208,8 +198,9 @@ Error in rep(y = 3, times = 4) :
 
 Si escribimos mal la función...
 
-```{r, eval=FALSE}
-rop(x =3, times = 4)
+```{r}
+#| eval: false
+rop(x = 3, times = 4)
 
 Error in rop(x = 3, times = 4) : no se pudo encontrar la función "rop"
 ```
@@ -225,7 +216,7 @@ Los errores de **objetos no encontrados** pueden tener una de varias causas:
 -   olvidamos poner comillas en un lugar que corresponde
 -   otros motivos posibles
 
-Volvamos al ejemplo anterior, ahora repitiendo un valor tipo character
+Volvamos al ejemplo anterior, ahora repitiendo un valor tipo character:
 
 ```{r}
 rep(x = "A", times = 4) # repetimos 4 veces "A" con rep()
@@ -233,7 +224,8 @@ rep(x = "A", times = 4) # repetimos 4 veces "A" con rep()
 
 Si olvidamos las comillas...
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 rep(x = A, times = 4) # repetimos 4 veces A con rep()
 
 Error: objeto 'A' no encontrado
@@ -247,17 +239,14 @@ Por lo tanto, es una buena política entender los mensajes de advertencia para v
 
 Resumiendo:
 
-```{r,echo=F,  fig.align='center', out.width = "60%"}
-knitr::include_graphics("images/errores_advertencias.PNG")
-```
-
-\newpage
+![](images/errores_advertencias.PNG){fig-align="center" width="70%"}
 
 ## Creación de objetos
 
-Todas las declaraciones donde se crean objetos, tienen este símbolo de asignación `<-`.
+Todas las declaraciones donde se crean objetos, tienen este símbolo de asignación `<-`
 
-```{r, eval=F}
+```{r}
+#| eval: false
 nombre_objeto <- valor
 ```
 
@@ -269,13 +258,13 @@ a <- 1
 
 En este caso asignamos el valor 1 al objeto `a`. El objeto `a` es un vector de una posición (un solo valor).
 
-Si llamasemos al objeto `a`, el interprete nos devuelve el valor asignado previamente.
+Si llamasemos al objeto `a`, el interprete nos devuelve el valor asignado previamente:
 
 ```{r}
 a
 ```
 
-Observemos que además de devolvernos el valor aparece delante un 1 entre corchetes `[1]`.Este número es la ubicación o índice del comienzo del objeto, que en este caso tiene una sola posición.
+Observemos que además de devolvernos el valor aparece delante un 1 entre corchetes `[1]`. Este número es la ubicación o índice del comienzo del objeto, que en este caso tiene una sola posición.
 
 ## Estructuras de datos
 
@@ -284,12 +273,10 @@ Los objetos *contenedores de datos* más simples pertenecen a **cinco clases** q
 -   integer (números enteros)
 -   numeric (números reales)
 -   complex (números complejos)
--   chacacter (cadena de caracteres)
+-   character (cadena de caracteres)
 -   logical (lógicos o booleanos -- toman valores por si o no)
 
-```{r,echo=F,  fig.align='center', out.width = "80%"}
-knitr::include_graphics("images/tipo_datos.jpg")
-```
+![](images/tipo_datos.JPG){fig-align="center" width="80%"}
 
 Sin embargo, cada una de estas clases de datos no se encuentran de manera aislada, sino encapsulados dentro de la clase de objeto operacional más básica del lenguaje a la que se denomina **vector**.
 
@@ -306,14 +293,14 @@ Todos los objetos de datos tienen estos dos atributos intrínsecos.
 -   el tipo, que puede ser integer, numeric, chacacter, complex y logical
 -   la longitud, que es el número de elementos que contiene el objeto.
 
-El vector más simple es el que contiene un dato, podría ser numérico de un solo dígito. El tipo sería numeric y la longitud 1.
+El vector más simple es el que contiene un dato, podría ser numérico de un solo dígito. El tipo sería numeric y la longitud 1:
 
 ```{r}
 vec1 <- 1
 vec1
 ```
 
-Otro vector más grande por ejemplo podría ser (1, 5, 2). En este caso también es del tipo numeric pero tiene una longitud de 3 elementos (3 posiciones que integran el vector).
+Otro vector más grande por ejemplo podría ser (1, 5, 2). En este caso también es del tipo numeric pero tiene una longitud de 3 elementos (3 posiciones que integran el vector):
 
 ```{r}
 vec2 <- c(1, 5, 2)
@@ -347,7 +334,7 @@ vec3 <- "Hola"
 vec3
 ```
 
-Siempre que escribamos contenido de tipo caracter debemos hacerlo entre comillas. En este caso generamos el vector `vec3` con el contenido "Hola". A pesar de ser una palabra que, por supuesto, esta compuesta de varios caracteres, dentro del vector `vec3` esta ocupa una sola posición.
+Siempre que escribamos contenido de tipo caracter debemos hacerlo entre comillas. En este caso generamos el vector `vec3` con el contenido "Hola". A pesar de ser una palabra que, por supuesto, esta compuesta de varios caracteres, dentro del vector `vec3` esta ocupa una sola posición:
 
 ```{r}
 length(vec3)
@@ -367,7 +354,7 @@ En su estructura interna está compuesto por dos vectores, en uno almacena índi
 
 Existen de dos tipos: factores nominales y factores ordinales. En el caso del segundo se establece un orden en los niveles.
 
-Normalmente, obtenemos un tipo factor de convertir un vector u otro tipo de objeto con caracteres, pero para mostrar un ejemplo lo realizamos con la función `factor()`.
+Normalmente, obtenemos un tipo factor de convertir un vector u otro tipo de objeto con caracteres, pero para mostrar un ejemplo lo realizamos con la función `factor()`:
 
 ```{r}
 factor1 <- factor(x = c("a", "b", "a", "c", "b", "a"), 
@@ -405,9 +392,7 @@ Creamos tres vectores con datos de supuestos individuos, su historia clinica, la
 
 Existen otras estructuras de datos que aparecen en la siguiente figura. Las más habituales en nuestro trabajo son los vectores y los dataframes. Los factores serán necesarios cuando tengamos que especificar distintos órdenes de niveles.
 
-```{r,echo=F,  fig.align='center', out.width = "70%"}
-knitr::include_graphics("images/objetos_R.png")
-```
+![](images/objetos_R.png){fig-align="center" width="80%"}
 
 ## Operadores en R
 
@@ -415,42 +400,35 @@ Además de funciones, el lenguaje R cuenta con operadores de uso relativamente i
 
 ### Operadores artiméticos
 
-<center>
+```{r}
+#| echo: false
 
-```{=html}
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-mi9i{background-color:#2f2e4e;color:#ffffff;text-align:center;vertical-align:top}
-.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
+tibble(Operador = c("+", 
+                    "-", 
+                    "*", 
+                    "/", 
+                    "^", 
+                    "%%", 
+                    "%/%"),
+       "Descripción" = c("Suma", 
+                         "Resta", 
+                         "Multiplicación", 
+                         "División",
+                         "Potencia", 
+                         "Módulo", 
+                         "División de enteros")) |> 
+  
+# Genera tabla
+  flextable() |> 
+  
+  # Formato tabla
+  font(fontname = "Helvetica", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  bold(part = "header") |>
+  bg(bg = "#2F2E4E", part = "header") |>
+  color(color = "white", part = "header") |>
+  set_table_properties(layout = "autofit")
 ```
-
-+-----------------------------+
-| Operadores aritméticos en R |
-+=============================+
-| Operador                    |
-+-----------------------------+
-| \+                          |
-+-----------------------------+
-| \-                          |
-+-----------------------------+
-| \*                          |
-+-----------------------------+
-| /                           |
-+-----------------------------+
-| \^                          |
-+-----------------------------+
-| %%                          |
-+-----------------------------+
-| %/%                         |
-+-----------------------------+
-
-</center>
 
 Los operadores aritméticos se utilizan como si el lenguaje fuese una calculadora:
 
@@ -470,7 +448,7 @@ b <- 6
 (a + b) * b
 ```
 
-Y funciona con objetos con más de un elemento, aplicando artimética vectorial, donde las operaciones se realizan elemento a elemento.
+Y funciona con objetos con más de un elemento, aplicando artimética vectorial, donde las operaciones se realizan elemento a elemento:
 
 ```{r}
 a <- c(1, 2, 3)
@@ -486,40 +464,33 @@ a * a
 
 ### Operadores relacionales
 
-<center>
+```{r}
+#| echo: false
 
-```{=html}
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-h4w9{background-color:#2f2e4e;border-color:#000000;color:#ffffff;text-align:center;vertical-align:top}
-.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
+tibble(Operador = c("<", 
+                    ">", 
+                    "<=", 
+                    ">=", 
+                    "==", 
+                    "!="),
+       "Descripción" = c("Menor a", 
+                         "Mayor a", 
+                         "Menor o igual a", 
+                         "Mayor o igual a", 
+                         "Igual a", 
+                         "No igual a")) |> 
+  
+# Genera tabla
+  flextable() |> 
+  
+  # Formato tabla
+  font(fontname = "Helvetica", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  bold(part = "header") |>
+  bg(bg = "#2F2E4E", part = "header") |>
+  color(color = "white", part = "header") |>
+  set_table_properties(layout = "autofit")
 ```
-
-+------------------------------+
-| Operadores relacionales en R |
-+==============================+
-| Operador                     |
-+------------------------------+
-| \<                           |
-+------------------------------+
-| \>                           |
-+------------------------------+
-| \<=                          |
-+------------------------------+
-| \>=                          |
-+------------------------------+
-| ==                           |
-+------------------------------+
-| !=                           |
-+------------------------------+
-
-</center>
 
 Habitualmente estos operadores se utilizan asiduamente en expresiones para indicar relaciones entre valores.
 
@@ -545,38 +516,31 @@ a != 8
 
 ### Operadores lógicos
 
-<center>
-
-```{=html}
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-mi9i{background-color:#2f2e4e;color:#ffffff;text-align:center;vertical-align:top}
-.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
+```{r}
+#| echo: false
+ 
+tibble(Operador = c("!", 
+                    "&", 
+                    "&&", 
+                    "|", 
+                    "||"),
+       "Descripción" = c("NOT", 
+                         "AND booleano",
+                         "", 
+                         "OR booleano", 
+                         "")) |> 
+  
+# Genera tabla
+  flextable() |> 
+  
+  # Formato tabla
+  font(fontname = "Helvetica", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  bold(part = "header") |>
+  bg(bg = "#2F2E4E", part = "header") |>
+  color(color = "white", part = "header") |>
+  set_table_properties(layout = "autofit")
 ```
-
-+-------------------------+
-| Operadores lógicos en R |
-+=========================+
-| Operador                |
-+-------------------------+
-| !                       |
-+-------------------------+
-| &                       |
-+-------------------------+
-| &&                      |
-+-------------------------+
-| \|                      |
-+-------------------------+
-| \|\|                    |
-+-------------------------+
-
-</center>
 
 Cuando queremos conectar algunas de las expresiones relacionales hacemos uso de estos operadores lógicos típicos (AND, OR, NOT).
 
@@ -592,38 +556,32 @@ En el caso anterior usamos el operador & como conector AND de dos expresiones re
 
 ## Valores especiales en R
 
-Existen algunos valores especiales para datos con expresiones reservadas en R, entre ellos encontramos los valores NA, NaN, Inf y NULL.
+Existen algunos valores especiales para datos con expresiones reservadas en R, entre ellos encontramos los valores `NA`, `NaN`, `Inf` y `NULL`.
 
-<center>
-
-```{=html}
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-hcah{background-color:#2f2e4e;color:#ffffff;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
+```{r}
+#| echo: false
+tibble(Operador = c("NA", "NaN", "Inf", "-Inf", "NULL"),
+       Significado = c("Not available", "Not a number", "Infinity",
+                       "Infinity", "Null"),
+       "Descripción" = c("Es la forma de expresar a los valores perdidos o faltantes (missing values)", 
+                         "Utilizado para resultados de operaciones que devuelven error numérico",
+                         "Valor infinito (positivo)",
+                         "Valor infinito (negativo)",
+                         "Valor nulo")) |> 
+  
+# Genera tabla
+  flextable() |> 
+  
+  # Formato tabla
+  font(fontname = "Helvetica", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  bold(part = "header") |>
+  bg(bg = "#2F2E4E", part = "header") |>
+  color(color = "white", part = "header") |>
+  set_table_properties(layout = "autofit")
 ```
 
-+------------+---------------+-----------------------------------------------------------------------------+
-| Expresión  | Significado   | Detalle                                                                     |
-+============+===============+=============================================================================+
-| NA         | Not available | Es la forma de expresar a los valores perdidos o faltantes (missing values) |
-+------------+---------------+-----------------------------------------------------------------------------+
-| NaN        | Not a number  | Utilizado para resultados de operaciones que devuelven error numérico       |
-+------------+---------------+-----------------------------------------------------------------------------+
-| Inf e -Inf | Infinity      | Valor infinito (positivo y negativo)                                        |
-+------------+---------------+-----------------------------------------------------------------------------+
-| NULL       | Null          | Valor nulo                                                                  |
-+------------+---------------+-----------------------------------------------------------------------------+
-
-</center>
-
-El más relevante de estos valores especiales es el NA que sirve para indicar que no hay valor en esa posición o elemento de un objeto.
+El más relevante de estos valores especiales es el `NA` que sirve para indicar que no hay valor en esa posición o elemento de un objeto.
 
 ## Secuencias regulares
 
@@ -636,7 +594,7 @@ La primera es mediante un operador que entre dos valores produce un intervalo se
 10:1
 ```
 
-Otra manera es por medio de la función `seq()` que tiene como argumentos principales *from*, *to* y *by*
+Otra manera es por medio de la función `seq()` que tiene como argumentos principales *from*, *to* y *by*:
 
 ```{r}
 seq(from = 1, to = 20, by = 2)
@@ -732,7 +690,7 @@ respuesta
 
 En la salida observamos que además de los siete elementos aparecen los niveles asumidos automáticamente bajo el título *Levels*.
 
-Si queremos comprobar el tipo de objeto en que se convirtió \`respuesta\`\`, encontraremos:
+Si queremos comprobar el tipo de objeto en que se convirtió "respuesta", encontraremos:
 
 ```{r}
 is.vector(respuesta) # preguntamos si respuesta es un vector
@@ -801,9 +759,9 @@ Al sumar `ordered=T` le estamos diciendo que los niveles tienen orden y estos se
 
 ## Gestión de dataframes
 
-La estructura de datos, usada dentro del lenguaje, para almacenar datos leídos de fuentes externas (archivos separados por comas, planillas de calculo, etc) es el dataframe.
+La estructura de datos, usada dentro del lenguaje, para almacenar datos leídos de fuentes externas (archivos separados por comas, planillas de calculo, etc.) es el dataframe.
 
-Vamos a crear un dataframe llamado `datos` con 4 variables de 5 registros, la primera será un identificador ID numérico entero correlativo, la segunda variable EDAD, la tercera SEXO codificada como V para varón y M para mujer y la tercera TRABAJA de formato lógica donde T (TRUE) corresponde a "Si trabaja" y F (FALSE) a "No trabaja":
+Vamos a crear un dataframe llamado `datos` con 4 variables de 5 registros, la primera será un identificador ID numérico entero correlativo, la segunda variable EDAD, la tercera SEXO codificada como V para varón y M para mujer y la tercera TRABAJA de formato lógica donde `T` (`TRUE`) corresponde a "Si trabaja" y `F` (`FALSE`) a "No trabaja":
 
 ```{r}
 id <- 1:5     # construimos el vector id
@@ -856,7 +814,7 @@ En cuanto al sistema de indexación podemos acceder a elementos internos del dat
 datos[,3]   # pedimos la tercer variable (sexo)
 ```
 
-Observemos que las dos ultimas salidas son identicas, dado que muestran todas las observaciones de la variable `sexo`, aunque la solicitud sea de manera diferente.
+Observemos que las dos ultimas salidas son idénticas, dado que muestran todas las observaciones de la variable `sexo`, aunque la solicitud sea de manera diferente.
 
 Algunos otros casos de uso de indice:
 
@@ -867,7 +825,7 @@ datos[1:3,3] # observación 1,2 y 3 variable 3
 datos[5, c(1,4)] # observación 5 variables 1 y 4
 ```
 
-Por último, vamos podemos mostrar y gestionar los nombres de las variables con la función `names()`
+Por último, vamos podemos mostrar y gestionar los nombres de las variables con la función `names()`:
 
 ```{r}
 names(datos)
@@ -889,37 +847,30 @@ El símbolo "`~`" (virgulilla) debería leerse como *"es modelado por"* o *"es m
 
 Por ejemplo, en una regresión lineal se utiliza la función base `lm()` y el argumento principal de esta función es una formula:
 
-> regresion_lineal \<- lm(variable.de.respuesta \~ variables.explicativas, data = DataFrame)
+> regresion_lineal \<- lm(variable.de.respuesta \~ variables.explicativas, data = datos)
 
 además de la formula hay un argumento llamado `data` que es imprescindible para indicarle a R de donde debe sacar los datos para realizar la regresión.
 
 La siguiente tabla muestra los usos de los los operadores más comunes dentro de una formula:
 
-<center>
+```{r}
+#| echo: false
 
-```{=html}
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-hcah{background-color:#2f2e4e;color:#ffffff;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
+tibble(Operador = c("+", "-", ":", "*"),
+       Ejemplo = c("+x", "-x", "x : z", "x * z"),
+       "Descripción" = c("Incluye la variable x",
+                         "Excluye la variable x",
+                         "Incluye la interacción de la variable x con z",
+                         "Incluye ambas variables y la interacción entre ellas")) |> 
+  
+# Genera tabla
+  flextable() |> 
+  
+  # Formato tabla
+  font(fontname = "Helvetica", part = "all") |>
+  fontsize(size = 12, part = "all") |>
+  bold(part = "header") |>
+  bg(bg = "#2F2E4E", part = "header") |>
+  color(color = "white", part = "header") |>
+  set_table_properties(layout = "autofit")
 ```
-
-+------------+---------------+-----------------------------------------------------------------------------+
-| Expresión  | Significado   | Detalle                                                                     |
-+============+===============+=============================================================================+
-| NA         | Not available | Es la forma de expresar a los valores perdidos o faltantes (missing values) |
-+------------+---------------+-----------------------------------------------------------------------------+
-| NaN        | Not a number  | Utilizado para resultados de operaciones que devuelven error numérico       |
-+------------+---------------+-----------------------------------------------------------------------------+
-| Inf e -Inf | Infinity      | Valor infinito (positivo y negativo)                                        |
-+------------+---------------+-----------------------------------------------------------------------------+
-| NULL       | Null          | Valor nulo                                                                  |
-+------------+---------------+-----------------------------------------------------------------------------+
-
-</center>

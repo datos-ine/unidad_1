@@ -67,6 +67,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -174,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lectura-de-archivos-de-datos" id="toc-lectura-de-archivos-de-datos" class="nav-link" data-scroll-target="#lectura-de-archivos-de-datos">Lectura de archivos de datos</a></li>
   <li><a href="#buenas-prácticas" id="toc-buenas-prácticas" class="nav-link" data-scroll-target="#buenas-prácticas">Buenas prácticas</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="pasos.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="datos.zip"><i class="bi bi-folder"></i>Archivos de datos</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -206,14 +210,12 @@ ul.task-list li input[type="checkbox"] {
 <center>
 Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanzado <br> © 2025 Instituto Nacional de Epidemiología “Dr.&nbsp;Juan H. Jara” (ANLIS) - <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1"> CC BY-NC 4.0 </a> <img src="images/cc01.svg" class="img-fluid" style="width:3.0%"> <img src="images/cc02.svg" class="img-fluid" style="width:3.0%"> <img src="images/cc03.svg" class="img-fluid" style="width:3.0%"> <br> <br>
 </center>
-<center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/dibujo2.png" class="img-fluid figure-img"></p>
+<p><img src="images/dibujo2.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption><a href="https://allisonhorst.com/">Artwork por @allison_horst</a></figcaption>
 </figure>
 </div>
-</center>
 <p>Una vez instalado el software (R + RStudio + Rtools) tenemos todo lo necesario para comenzar a trabajar con el lenguaje R.</p>
 <p>En este documento vamos a explicar algunos procedimientos que vamos a llevar a cabo muchas veces en practicas a lo largo del curso.</p>
 <p>En principio, aunque instalamos tres programas, el único que debemos ejecutar para ponernos a trabajar es <strong>RStudio</strong>. Éste se encarga de utilizar a <strong>R</strong> como <em>motor/interprete</em> y a <em>Rtools</em> si llegamos a necesitar instalar algún paquete desarrollado en C, C++ o Fortran.</p>
@@ -225,35 +227,23 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <p>Podemos abrir proyectos ya creados, cerrarlos y crear proyectos nuevos.</p>
 <section id="crear-un-nuevo-proyecto-de-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="crear-un-nuevo-proyecto-de-rstudio">Crear un nuevo proyecto de RStudio</h3>
-<p>Creamos un nuevo proyecto de RStudio seleccionando la opción <strong>File</strong> y luego <strong>New Project …</strong> de la barra de menú en la parte superior de la pantalla de RStudio como se muestra en la siguiente figura.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<p>Creamos un nuevo proyecto de RStudio seleccionando la opción <strong>File</strong> y luego <strong>New Project…</strong> de la barra de menú en la parte superior de la pantalla de RStudio como se muestra en la siguiente figura.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/Proy1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>También accedemos a generar un proyecto nuevo a partir de pulsar sobre <strong>New Project…</strong> del menú desplegado en el extremo derecho superior de la interfaz de RStudio.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/Proy2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>En cualquiera de los dos casos aparecerá un cuadro de diálogo que presenta algunas opciones para crear el <strong>nuevo proyecto de RStudio</strong>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy3.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/Proy3.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>Por lo general, seleccionaremos la primera opción, <strong>New Directory</strong>, que crea una nueva carpeta a la que deberemos colocarle un nombre. Todos los archivos de configuración aparecerán asociados a esta nueva carpeta.</p>
 <p>Sin embargo, si ya tenemos algunos archivos de código o archivos de datos con los que deseamos trabajar, podemos elegir la segunda opción, <strong>Existing Directory</strong>. El proyecto tomará el nombre de la <em>carpeta ya existente</em> que seleccionemos en forma predeterminada.</p>
@@ -263,65 +253,45 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <h3 class="anchored" data-anchor-id="tipos-de-proyectos">Tipos de proyectos</h3>
 <p>Para este ejemplo, hicimos clic en <strong>New Directory</strong> para crear un proyecto nuevo.</p>
 <p>La pantalla que aparece nos mostrará una lista de tipos de proyectos de RStudio.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy4.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/clipboard-3941363216.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>El primero <strong>New Proyect</strong> es el que usaremos siempre en este curso.</p>
 <p>Las otras opciones incluyen código específico utilizado para casos de uso especial.</p>
 <p>Para continuar con este ejemplo, pulsamos sobre <strong>New Project</strong> accediendo a la ventana emergente.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy5.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/clipboard-3868172143.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>Debemos completar dos campos de la nueva ventana.</p>
 <p>En <strong>Directory name</strong> hay que escribir el nombre de la nueva carpeta que también será el nombre de nuestro proyecto.</p>
 <p>En <strong>Create Project as subdirectory of:</strong> podemos pulsar sobre el botón <em>Browse…</em> y navegar por nuestro <em>Explorador de Archivos</em> hasta ubicar la carpeta donde queremos que se ubique el nuevo proyecto con su nueva carpeta asociada.</p>
 <p>Finalmente hacemos click en el botón <strong>Create Project</strong>.</p>
 <p>Supongamos que nombremos a nuestro nuevo proyecto como <em>“Practica R”</em> y que lo generamos dentro de la carpeta <em>Mis Documentos</em>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy6.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/Proy6.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>Este nuevo proyecto de RStudio se almacenará en la carpeta <strong>Practica R</strong> que encontraremos en <em>Mis Documentos</em>.</p>
 <p>Los proyectos de RStudio tienen sus propios entornos, por lo que si cerramos o cambiamos de proyecto, nuestra configuración se mantendrá inalterable.</p>
 <p>Esto es cierto para los scripts y cualquier otra cosa que pueda necesitar para un análisis.</p>
 <p>Echemos un vistazo a lo que RStudio realizó.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy7.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/Proy7.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>En la figura anterior podemos ver dos cambios en la pantalla de inicio.</p>
 <p>En primer lugar el panel Files (pantalla inferior derecha) apunta a la nueva carpeta <strong>Practica R</strong> y dentro de ella vemos un nuevo archivo el nombre del proyecto y la extensión <strong>Rproj</strong>. Este archivo contiene todas las configuraciones para su proyecto.</p>
 <p>El otro cambio se observa en la parte superior derecha, que muestra el nombre del proyecto. Si hacemos click en él, se desplegará el menú de proyectos.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Proy8.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+<p><img src="images/Proy8.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>Desde aquí se puede abrir y cerrar proyectos, navegar rápidamente a proyectos que se han abierto recientemente y configurar las opciones de RStudio para cada uno de ellos.</p>
 </section>
@@ -338,14 +308,10 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <section id="cómo-creamos-un-script-nuevo-en-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="cómo-creamos-un-script-nuevo-en-rstudio">Cómo creamos un script nuevo en RStudio?</h3>
 <p>Tenemos dos formas de crear un script nuevo. Desde el menú superior pulsando <strong>File &gt; New File &gt; R Script</strong> (atajo Ctrl+Shift+N) o con el ícono del documento con un símbolo +, como se muestra debajo.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Script_nuevo.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+<p><img src="images/Script_nuevo.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="cómo-ejecutamos-un-script-en-rstudio" class="level3">
@@ -389,28 +355,20 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <h3 class="anchored" data-anchor-id="asistente-de-código">Asistente de código</h3>
 <p>Cuando escribimos desde el teclado en el editor de código o en la consola de RStudio tenemos una tecla que nos autocompleta el nombre de las funciones que vamos tipeando.</p>
 <p>Esta herramienta de autocompletado se ejecuta pulsando la <strong>tecla de tabulación</strong> (<strong>Tab</strong>) y nos muestra las posibilidades de finalizar las palabras que vamos escribiendo junto al esquema de argumentos obligatorios que tiene asociado dicha función.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/RS1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="images/RS1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>Al sistematizar la escritura de código apoyándonos en el uso del autocompletado vamos a reducir la tasa de error de sintaxis, dado que las funciones, los argumentos y los nombres de las tablas y variables de nuestros datos van a estar correctamente escritos.</p>
 </section>
 <section id="ayuda-en-línea" class="level3">
 <h3 class="anchored" data-anchor-id="ayuda-en-línea">Ayuda en línea</h3>
 <p>Si necesitamos acceder a una ayuda adicional en línea bastará que presionemos la <strong>tecla F1</strong> con el cursor situado sobre el nombre de la función escrita en el editor de código para que aparezca la información relacionada en el <strong>bloque Help</strong> de Rstudio (generalmente panel abajo a la derecha).</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/RS2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="images/RS2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="historial-de-funciones" class="level3">
@@ -420,92 +378,19 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <p>Este historial de funciones también lo encontramos en el bloque superior derecho de RStudio, dentro de la pestaña <strong>History</strong>.</p>
 <p>History almacena todos las funciones ejecutados en consola de forma acumulativa, incluso anidando sesión tras sesión.</p>
 <p>Los comandos que aparecen en ese panel se pueden copiar y pegar en la Consola o, de forma más directa, puedes seleccionar uno de ellos con el mouse, y pulsar en el <strong>botón To Console</strong> (Enter) para insertarlo en consola o <strong>To Source</strong> (Shitft+Enter) para insertarlo en el script activo en el que estemos trabajando.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/RS3.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="images/RS3.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="atajos-de-teclados-relevantes-para-windows" class="level3">
 <h3 class="anchored" data-anchor-id="atajos-de-teclados-relevantes-para-windows">Atajos de teclados relevantes (para Windows)</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 49%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Menú Archivo (File)</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl+Shift+N</td>
-<td style="text-align: left;">Crea un nuevo script</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl+O</td>
-<td style="text-align: left;">Abre un script guardado</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl+S</td>
-<td style="text-align: left;">Guarda el script activo</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl+W</td>
-<td style="text-align: left;">Cierra el script activo</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl+Q</td>
-<td style="text-align: left;">Sale del programa RStudio</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Menú Edición (Edit)</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl+F</td>
-<td style="text-align: left;">Abre la ventana de búsqueda (para buscar palabras dentro de un script)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl+L</td>
-<td style="text-align: left;">Limpia la consola</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Menú Código (Code)</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl+Enter</td>
-<td style="text-align: left;">Ejecuta la línea de código donde está situado el cursor</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl+Alt+R</td>
-<td style="text-align: left;">Ejecuta todo el código del script activo</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Menú Sesión (Session)</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl+Shift+H</td>
-<td style="text-align: left;">Abre la ventana para establecer directorio de trabajo</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Menú Herramientas (Tools)</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Alt+Shift+K</td>
-<td style="text-align: left;">Abre la lista de ayuda de atajos de teclado</td>
-</tr>
-</tbody>
-</table>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-7ef3da20{table-layout:auto;}.cl-7eee5e4c{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-7eee5e60{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7eee5e61{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7ef08140{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7ef09540{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7ef09541{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7ef09542{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-7ef3da20"><thead><tr style="overflow-wrap:break-word;"><th class="cl-7ef09540"><p class="cl-7ef08140"><span class="cl-7eee5e4c">Menú</span></p></th><th class="cl-7ef09540"><p class="cl-7ef08140"><span class="cl-7eee5e4c">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e60">Archivo (File)</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Shift + N</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Crea un nuevo script</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + O</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Abre un script guardado</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + S</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Guarda el script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + W</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Cierra el script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Q</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Sale del programa RStudio</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e60">Edición (Edit)</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + F</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Abre la ventana de búsqueda (para buscar palabras dentro de un script)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + L</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Limpia la consola</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e60">Código (Code)</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Enter</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ejecuta la línea de código donde está situado el cursor</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Alt + R</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ejecuta todo el código del script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Shift + N</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Inserta nueva sección de código</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e60">Sesión (Session)</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Shift + H</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Abre la ventana para establecer directorio de trabajo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Ctrl + Shift + F10</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61">Reinicia la sesión de R</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e60">Herramientas (Tools)</span></p></td><td class="cl-7ef09541"><p class="cl-7ef08140"><span class="cl-7eee5e61"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7ef09542"><p class="cl-7ef08140"><span class="cl-7eee5e61">Alt + Shift + K</span></p></td><td class="cl-7ef09542"><p class="cl-7ef08140"><span class="cl-7eee5e61">Abre la lista de ayuda de atajos de teclado</span></p></td></tr></tbody></table></div>
+</div>
+</div>
 </section>
 </section>
 <section id="paquetes-librerías" class="level2">
@@ -522,26 +407,18 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <p>Allí se encuentran los enlaces para ver el listado de paquetes ordenados alfabéticamente o por fecha de publicación.</p>
 <p>Una vez que ingresamos al link del paquete que nos interesa veremos en la página algunos datos relacionados como un breve texto de que trata el paquete, el numero de versión, la fecha de publicación, el autor, el archivo de documentación, y por supuesto los archivos a descargar para cada sistema operativo.</p>
 <p>Afortunadamente en la actualidad la mayoría de las computadoras cuentan con acceso a Internet por lo cual explicaremos como se puede descargar, instalar y activar los paquetes desde RStudio.</p>
-<p>RStudio tiene una pestaña específica para gestionar los paquetes ubicada de forma predeterminada en el bloque inferior derecho de la interfaz (<strong>Packages</strong>)</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<p>RStudio tiene una pestaña específica para gestionar los paquetes ubicada de forma predeterminada en el bloque inferior derecho de la interfaz (<strong>Packages</strong>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/RS4.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src="images/RS4.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <p>Prácticamente todos las acciones que nos facilita la interfaz de RStudio se traduce internamente en ejecuciones de funciones de R que podemos ver en la consola.</p>
 <p>La secuencia para instalar un paquete que no tengamos previamente instalado inicia a partir de pulsar el <strong>botón Install</strong> y la ventana emergente que visualizaremos es la siguiente:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/RS5.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="images/RS5.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
-</div>
-</div>
 </div>
 <section id="dependencias" class="level3">
 <h3 class="anchored" data-anchor-id="dependencias">Dependencias</h3>
@@ -562,9 +439,9 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <h2 class="anchored" data-anchor-id="buenas-prácticas">Buenas prácticas</h2>
 <ul>
 <li>Utilizar siempre proyectos de RStudio (Rproj)</li>
-<li>Iniciar los scripts con las líneas de activación de paquetes necesarios para ejecutar las funciones incluídas en el código. ( función <strong>library()</strong> )</li>
+<li>Iniciar los scripts con las líneas de activación de paquetes necesarios para ejecutar las funciones incluídas en el código. ( función <code>library()</code> )</li>
 <li>Documentar el código por medio de comentarios (iniciados con <strong>#</strong>)</li>
-<li>Utilizar espacios e identación adecuada para que el código sea de fácil lectura. Para ayudar a mejorar la legibilidad y facilitar el compartir código con otros, existe una guía de estilo no oficial para escribir código R. Es bastante breve y tiene muchos ejemplos de buenas y malas formas de escribir código (nombrar variables, manejar líneas largas, usar niveles de sangría adecuados, etc.). La pueden encontrar en <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a></li>
+<li>Utilizar espacios e identación adecuada para que el código sea de fácil lectura. Para ayudar a mejorar la legibilidad y facilitar el compartir código con otros, existe una guía de estilo no oficial para escribir código R. Es bastante breve y tiene muchos ejemplos de buenas y malas formas de escribir código (nombrar variables, manejar líneas largas, usar niveles de sangría adecuados, etc.). La pueden encontrar en <a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a></li>
 </ul>
 
 

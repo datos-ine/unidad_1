@@ -35,7 +35,21 @@ format:
     toc-location: right
     toc-title: "Contenidos"
     search: true
+    self_contained: true
     author: 
     - "Christian Ballejo"
+  
+  typst:
+    self_contained: true
+  
+format-links:
+  - html
+  - format: typst
+    text: PDF
+    icon: file-pdf
+  - text: "Archivos de datos"
+    href: datos.zip
+    icon: folder
 
+editor: visual
 
