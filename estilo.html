@@ -185,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#espaciado" id="toc-espaciado" class="nav-link" data-scroll-target="#espaciado">Espaciado</a></li>
   <li><a href="#líneas-largas" id="toc-líneas-largas" class="nav-link" data-scroll-target="#líneas-largas">Líneas largas</a></li>
-  <li><a href="#tuberías-o-y-capas-en-ggplot2" id="toc-tuberías-o-y-capas-en-ggplot2" class="nav-link" data-scroll-target="#tuberías-o-y-capas-en-ggplot2">Tuberías (<strong>%&gt;%</strong> o <strong>|&gt;</strong>) y capas en ggplot2 (<strong>+</strong>)</a></li>
+  <li><a href="#tuberías-o-y-capas-en-ggplot2" id="toc-tuberías-o-y-capas-en-ggplot2" class="nav-link" data-scroll-target="#tuberías-o-y-capas-en-ggplot2">Tuberías (<strong>|&gt;</strong> o <strong>|&gt;</strong>) y capas en ggplot2 (<strong>+</strong>)</a></li>
   <li><a href="#comentarios" id="toc-comentarios" class="nav-link" data-scroll-target="#comentarios">Comentarios</a></li>
   </ul></li>
   </ul>
@@ -313,7 +313,7 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 </div>
 </section>
 <section id="tuberías-o-y-capas-en-ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="tuberías-o-y-capas-en-ggplot2">Tuberías (<strong>%&gt;%</strong> o <strong>|&gt;</strong>) y capas en ggplot2 (<strong>+</strong>)</h3>
+<h3 class="anchored" data-anchor-id="tuberías-o-y-capas-en-ggplot2">Tuberías (<strong>|&gt;</strong> o <strong>|&gt;</strong>) y capas en ggplot2 (<strong>+</strong>)</h3>
 <p>Coloque cada capa de un gráfico ggplot en líneas separadas, con el <strong>+</strong> al final de la línea y debajo sangría de dos espacios:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bien</span></span>
@@ -336,7 +336,7 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> <span class="fu">geom_smooth</span>() </span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Coloque cada paso de una tubería en líneas separadas, con el <strong>%&gt;%</strong> o <strong>|&gt;</strong> al final de la línea y debajo una sangría de dos espacios:</p>
+<p>Coloque cada paso de una tubería en líneas separadas, con el <strong>|&gt;</strong> o <strong>|&gt;</strong> al final de la línea y debajo una sangría de dos espacios:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bien</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
@@ -370,16 +370,16 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 </div>
 <p>Si el comentario es muy corto (y no provoca que se supere los 80 caracteres en la línea), se puede incluir en la misma línea del código, separado por al menos dos espacios (funciona con un espacio, pero usando un par puede mejorar la legibilidad):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span>  <span class="co"># filtro filas donde cty es 10 o más</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">%&gt;%</span>  <span class="co"># estratifica por class</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span>  <span class="co"># filtro filas donde cty es 10 o más</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span>  <span class="co"># estratifica por class</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy))  <span class="co"># resume la media de hwy por cada grupo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Se puede agregar espacios adicionales para alinear los comentarios en línea, si lo deseamos:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span>            <span class="co"># filtro filas donde cty es 10 o más</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">%&gt;%</span>             <span class="co"># estratifica por class</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span>            <span class="co"># filtro filas donde cty es 10 o más</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span>             <span class="co"># estratifica por class</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy))  <span class="co"># resume la media de hwy por cada grupo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Si el comentario es muy largo, podemos dividirlo en varias líneas. RStudio tiene una herramienta en <strong>Code &gt; Reflow Comment</strong> que lo automatiza.</p>
