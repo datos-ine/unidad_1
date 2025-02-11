@@ -1,0 +1,14 @@
+/* Estilo para los subtítulos de nivel 1 (##) */
+h1 {
+  background-color: #2F2E4E; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+
+/* Cambiar el color de los hipervínculos */
+a {
+  color: #2F2E4E; /* Cambiar color del texto de los enlaces */
+  text-decoration: underline; /* Agregar subrayado al pasar el mouse */
+}

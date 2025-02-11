@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Christian Ballejo">
+
+<title>Primeros pasos y generalidades – Unidad 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pasos.html">Primeros pasos y generalidades</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logos_ine.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unidad 1: Introducción a R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pasos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Primeros pasos y generalidades</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción a tidyverse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Análisis exploratorio de datos (EDA)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estilo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hoja de Estilo del lenguaje R</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenidos</h2>
+   
+  <ul>
+  <li><a href="#proyectos-de-rstudio" id="toc-proyectos-de-rstudio" class="nav-link active" data-scroll-target="#proyectos-de-rstudio">Proyectos de RStudio</a>
+  <ul class="collapse">
+  <li><a href="#crear-un-nuevo-proyecto-de-rstudio" id="toc-crear-un-nuevo-proyecto-de-rstudio" class="nav-link" data-scroll-target="#crear-un-nuevo-proyecto-de-rstudio">Crear un nuevo proyecto de RStudio</a></li>
+  <li><a href="#tipos-de-proyectos" id="toc-tipos-de-proyectos" class="nav-link" data-scroll-target="#tipos-de-proyectos">Tipos de proyectos</a></li>
+  <li><a href="#abrir-un-proyecto-existente" id="toc-abrir-un-proyecto-existente" class="nav-link" data-scroll-target="#abrir-un-proyecto-existente">Abrir un proyecto existente</a></li>
+  </ul></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a>
+  <ul class="collapse">
+  <li><a href="#cómo-creamos-un-script-nuevo-en-rstudio" id="toc-cómo-creamos-un-script-nuevo-en-rstudio" class="nav-link" data-scroll-target="#cómo-creamos-un-script-nuevo-en-rstudio">Cómo creamos un script nuevo en RStudio?</a></li>
+  <li><a href="#cómo-ejecutamos-un-script-en-rstudio" id="toc-cómo-ejecutamos-un-script-en-rstudio" class="nav-link" data-scroll-target="#cómo-ejecutamos-un-script-en-rstudio">Cómo ejecutamos un script en RStudio?</a></li>
+  <li><a href="#cómo-editamos-un-script-en-rstudio" id="toc-cómo-editamos-un-script-en-rstudio" class="nav-link" data-scroll-target="#cómo-editamos-un-script-en-rstudio">Cómo editamos un script en RStudio?</a></li>
+  <li><a href="#cómo-guardamos-un-script-en-rstudio" id="toc-cómo-guardamos-un-script-en-rstudio" class="nav-link" data-scroll-target="#cómo-guardamos-un-script-en-rstudio">Cómo guardamos un script en RStudio?</a></li>
+  <li><a href="#cómo-abrimos-un-script-en-rstudio" id="toc-cómo-abrimos-un-script-en-rstudio" class="nav-link" data-scroll-target="#cómo-abrimos-un-script-en-rstudio">Cómo abrimos un script en RStudio?</a></li>
+  </ul></li>
+  <li><a href="#herramientas-de-rstudio" id="toc-herramientas-de-rstudio" class="nav-link" data-scroll-target="#herramientas-de-rstudio">Herramientas de RStudio</a>
+  <ul class="collapse">
+  <li><a href="#asistente-de-código" id="toc-asistente-de-código" class="nav-link" data-scroll-target="#asistente-de-código">Asistente de código</a></li>
+  <li><a href="#ayuda-en-línea" id="toc-ayuda-en-línea" class="nav-link" data-scroll-target="#ayuda-en-línea">Ayuda en línea</a></li>
+  <li><a href="#historial-de-funciones" id="toc-historial-de-funciones" class="nav-link" data-scroll-target="#historial-de-funciones">Historial de funciones</a></li>
+  <li><a href="#atajos-de-teclados-relevantes-para-windows" id="toc-atajos-de-teclados-relevantes-para-windows" class="nav-link" data-scroll-target="#atajos-de-teclados-relevantes-para-windows">Atajos de teclados relevantes (para Windows)</a></li>
+  </ul></li>
+  <li><a href="#paquetes-librerías" id="toc-paquetes-librerías" class="nav-link" data-scroll-target="#paquetes-librerías">Paquetes (librerías)</a>
+  <ul class="collapse">
+  <li><a href="#dependencias" id="toc-dependencias" class="nav-link" data-scroll-target="#dependencias">Dependencias</a></li>
+  </ul></li>
+  <li><a href="#lectura-de-archivos-de-datos" id="toc-lectura-de-archivos-de-datos" class="nav-link" data-scroll-target="#lectura-de-archivos-de-datos">Lectura de archivos de datos</a></li>
+  <li><a href="#buenas-prácticas" id="toc-buenas-prácticas" class="nav-link" data-scroll-target="#buenas-prácticas">Buenas prácticas</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="pasos.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="datos.zip"><i class="bi bi-folder"></i>Archivos de datos</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Primeros pasos y generalidades</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Christian Ballejo </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+<center>
+Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanzado <br> © 2025 Instituto Nacional de Epidemiología “Dr.&nbsp;Juan H. Jara” (ANLIS) - <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1"> CC BY-NC 4.0 </a> <img src="images/cc01.svg" class="img-fluid" style="width:3.0%"> <img src="images/cc02.svg" class="img-fluid" style="width:3.0%"> <img src="images/cc03.svg" class="img-fluid" style="width:3.0%"> <br> <br>
+</center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/dibujo2.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption><a href="https://allisonhorst.com/">Artwork por @allison_horst</a></figcaption>
+</figure>
+</div>
+<p>Una vez instalado el software (R + RStudio + Rtools) tenemos todo lo necesario para comenzar a trabajar con el lenguaje R.</p>
+<p>En este documento vamos a explicar algunos procedimientos que vamos a llevar a cabo muchas veces en practicas a lo largo del curso.</p>
+<p>En principio, aunque instalamos tres programas, el único que debemos ejecutar para ponernos a trabajar es <strong>RStudio</strong>. Éste se encarga de utilizar a <strong>R</strong> como <em>motor/interprete</em> y a <em>Rtools</em> si llegamos a necesitar instalar algún paquete desarrollado en C, C++ o Fortran.</p>
+<section id="proyectos-de-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="proyectos-de-rstudio">Proyectos de RStudio</h2>
+<p>Los proyectos de RStudio se utilizan para organizar todo el código, los informes, las fuentes de datos y cualquier otro archivo utilizado en un análisis.</p>
+<p>La organización del trabajo en proyectos es muy útil para asegurarnos que cada vez que necesitemos importar datos, RStudio los busque dentro de la carpeta asociada al proyecto.</p>
+<p>Cada proyecto de RStudio se vincula con una carpeta. Esa carpeta puede estar ubicada en cualquier parte del sistema de almacenamiento que deseemos (disco rígido, pendrive, disco externo, etc).</p>
+<p>Podemos abrir proyectos ya creados, cerrarlos y crear proyectos nuevos.</p>
+<section id="crear-un-nuevo-proyecto-de-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="crear-un-nuevo-proyecto-de-rstudio">Crear un nuevo proyecto de RStudio</h3>
+<p>Creamos un nuevo proyecto de RStudio seleccionando la opción <strong>File</strong> y luego <strong>New Project…</strong> de la barra de menú en la parte superior de la pantalla de RStudio como se muestra en la siguiente figura.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Proy1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>También accedemos a generar un proyecto nuevo a partir de pulsar sobre <strong>New Project…</strong> del menú desplegado en el extremo derecho superior de la interfaz de RStudio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Proy2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>En cualquiera de los dos casos aparecerá un cuadro de diálogo que presenta algunas opciones para crear el <strong>nuevo proyecto de RStudio</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Proy3.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%"></p>
+</figure>
+</div>
+<p>Por lo general, seleccionaremos la primera opción, <strong>New Directory</strong>, que crea una nueva carpeta a la que deberemos colocarle un nombre. Todos los archivos de configuración aparecerán asociados a esta nueva carpeta.</p>
+<p>Sin embargo, si ya tenemos algunos archivos de código o archivos de datos con los que deseamos trabajar, podemos elegir la segunda opción, <strong>Existing Directory</strong>. El proyecto tomará el nombre de la <em>carpeta ya existente</em> que seleccionemos en forma predeterminada.</p>
+<p>En este curso no utilizaremos la tercera opción <strong>Version Control</strong>.</p>
+</section>
+<section id="tipos-de-proyectos" class="level3">
+<h3 class="anchored" data-anchor-id="tipos-de-proyectos">Tipos de proyectos</h3>
+<p>Para este ejemplo, hicimos clic en <strong>New Directory</strong> para crear un proyecto nuevo.</p>
+<p>La pantalla que aparece nos mostrará una lista de tipos de proyectos de RStudio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3941363216.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>El primero <strong>New Proyect</strong> es el que usaremos siempre en este curso.</p>
+<p>Las otras opciones incluyen código específico utilizado para casos de uso especial.</p>
+<p>Para continuar con este ejemplo, pulsamos sobre <strong>New Project</strong> accediendo a la ventana emergente.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3868172143.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Debemos completar dos campos de la nueva ventana.</p>
+<p>En <strong>Directory name</strong> hay que escribir el nombre de la nueva carpeta que también será el nombre de nuestro proyecto.</p>
+<p>En <strong>Create Project as subdirectory of:</strong> podemos pulsar sobre el botón <em>Browse…</em> y navegar por nuestro <em>Explorador de Archivos</em> hasta ubicar la carpeta donde queremos que se ubique el nuevo proyecto con su nueva carpeta asociada.</p>
+<p>Finalmente hacemos click en el botón <strong>Create Project</strong>.</p>
+<p>Supongamos que nombremos a nuestro nuevo proyecto como <em>“Practica R”</em> y que lo generamos dentro de la carpeta <em>Mis Documentos</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Proy6.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Este nuevo proyecto de RStudio se almacenará en la carpeta <strong>Practica R</strong> que encontraremos en <em>Mis Documentos</em>.</p>
+<p>Los proyectos de RStudio tienen sus propios entornos, por lo que si cerramos o cambiamos de proyecto, nuestra configuración se mantendrá inalterable.</p>
+<p>Esto es cierto para los scripts y cualquier otra cosa que pueda necesitar para un análisis.</p>
+<p>Echemos un vistazo a lo que RStudio realizó.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Proy7.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>En la figura anterior podemos ver dos cambios en la pantalla de inicio.</p>
+<p>En primer lugar el panel Files (pantalla inferior derecha) apunta a la nueva carpeta <strong>Practica R</strong> y dentro de ella vemos un nuevo archivo el nombre del proyecto y la extensión <strong>Rproj</strong>. Este archivo contiene todas las configuraciones para su proyecto.</p>
+<p>El otro cambio se observa en la parte superior derecha, que muestra el nombre del proyecto. Si hacemos click en él, se desplegará el menú de proyectos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Proy8.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Desde aquí se puede abrir y cerrar proyectos, navegar rápidamente a proyectos que se han abierto recientemente y configurar las opciones de RStudio para cada uno de ellos.</p>
+</section>
+<section id="abrir-un-proyecto-existente" class="level3">
+<h3 class="anchored" data-anchor-id="abrir-un-proyecto-existente">Abrir un proyecto existente</h3>
+<p>Cuando el proyecto ya existe, sea porque lo creamos nosotros o porque alguien nos pasó una carpeta con un proyecto de RStudio creado vamos a visualizar dentro de esa carpeta un archivo con extensión <strong>.Rproj</strong></p>
+<p>La forma más veloz para abrir el proyecto es ejecutar este archivo (debería abrir una sesión de RStudio con el proyecto activo). La otra forma es desde el menú superior derecho de RStudio en la opción <strong>Open proyect…</strong> y luego buscando en nuestro directorio el mismo archivo <strong>.Rproj</strong>.</p>
+<p><strong>Nota:</strong> El menú de proyectos del área superior derecha va guardando como elementos recientes los proyectos que se van abriendo y también es una forma rápida de acceder a ellos pulsando sobre estos atajos.</p>
+</section>
+</section>
+<section id="scripts" class="level2">
+<h2 class="anchored" data-anchor-id="scripts">Scripts</h2>
+<p>Un script es un archivo de código que contiene un listado secuencial de funciones para ser ejecutadas en R. Estos archivos permiten guardar el código que vamos creando y volver a utilizarlo tantas veces como se quiera, además de poder compartirlo con otras personas.</p>
+<section id="cómo-creamos-un-script-nuevo-en-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-creamos-un-script-nuevo-en-rstudio">Cómo creamos un script nuevo en RStudio?</h3>
+<p>Tenemos dos formas de crear un script nuevo. Desde el menú superior pulsando <strong>File &gt; New File &gt; R Script</strong> (atajo Ctrl+Shift+N) o con el ícono del documento con un símbolo +, como se muestra debajo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Script_nuevo.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="cómo-ejecutamos-un-script-en-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-ejecutamos-un-script-en-rstudio">Cómo ejecutamos un script en RStudio?</h3>
+<p>La forma de ejecutar habitualmente estos script, es línea por línea mediante el uso de la combinación de teclas <strong><em>Ctrl+Enter</em></strong> o el <strong>botón Run</strong> del editor de código de RStudio. Para esto tenemos que tener el cursor activo en la línea que queremos correr (puede ser en cualquier parte de la línea) y luego de ser ejecutada el cursor saltará automáticamente a la siguiente línea que tenga código.</p>
+<p>Mientras ejecutamos cada línea debemos ir observando la salida en la consola y también los cambios que se dan en el bloque Environment (Entorno) donde aparecerán los objetos que vayamos creando y manipulando.</p>
+</section>
+<section id="cómo-editamos-un-script-en-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-editamos-un-script-en-rstudio">Cómo editamos un script en RStudio?</h3>
+<p>Si queremos modificar o incorporar alguna línea al script que ya se encuentra escrita podemos hacerlo de forma directa en el editor de código.</p>
+<p>Cada vez que hacemos un cambio debemos volver a ejecutar esa o esas líneas para que se realice la modificación.</p>
+<p>Podemos probar y volver a modificar tantas veces queramos pero debemos tener presente que cada manipulación en los objetos se mantiene hasta que se vuelvan a cambiar y a veces, cuando los objetos están vinculados con otras líneas de código posteriores tenemos que tener cuidado que se mantenga la coherencia.</p>
+<p>Por ejemplo, si tenemos un objeto vector con contenido numérico para posteriormente realizar cálculos matemáticos y nosotros cambiamos el contenido del vector por un valor caracter, ya no vamos a poder hacer los cálculos posteriores y RStudio nos informará el error en consola.</p>
+<p>Allí es importante tener presente el bloque Environment que nos va a mostrar siempre el contenido de cada objeto definido en memoria, para evitar operaciones incoherentes y errores.</p>
+</section>
+<section id="cómo-guardamos-un-script-en-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-guardamos-un-script-en-rstudio">Cómo guardamos un script en RStudio?</h3>
+<p>Cualquier agregado o modificación que hayamos realizado al script que nos interese mantener nos obligará a guardar el archivo de código editado.</p>
+<p>Basta con pulsar sobre el ícono del diskette celeste del editor de código para guardar el script, o bien hacerlo desde el menú principal <em>File &gt; Save</em> o presionando <strong>Ctrl+S</strong>.</p>
+<p>Si en cambio quisiera guardarlo como otro archivo para mantener el script original, podemos guardarlo con diferente nombre o en otra ubicación mediante <em>File &gt; Save As…</em></p>
+</section>
+<section id="cómo-abrimos-un-script-en-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-abrimos-un-script-en-rstudio">Cómo abrimos un script en RStudio?</h3>
+<p>Los scripts que construyamos o bien que nos compartan siempre tendrán extensión <strong>.R</strong> y generalmente, se encontrarán dentro de algún proyecto.</p>
+<p>Para abrir estos archivos .R podemos pulsar sobre ellos dentro del panel Files (abajo a la derecha) o bien desde el menú con <strong>File &gt; Open file…</strong> (atajo de teclado Ctrl+O)</p>
+<p>Visualizaremos el script en una nueva pestaña en el editor de código.</p>
+<p>En el curso vamos a incluir a nuestros scripts dentro de algún proyecto para facilitar el trabajo, por lo que en general seguiremos la siguiente secuencia:</p>
+<ol type="1">
+<li>Descargamos desde el aula virtual un archivo comprimido conteniendo la carpeta, el proyecto, el/los script/s y el/los archivos de datos.</li>
+<li>Descomprimimos el archivo descargado en la ubicación que deseamos (se recomienda organizar alguna carpeta destinada al curso)</li>
+<li>Abrimos la carpeta descomprimida y ejecutamos el archivo de proyecto <strong>.Rproj</strong></li>
+<li>Al abrirse RStudio con el proyecto activo veremos en el panel <strong>Files</strong> el contenido de la carpeta. Buscamos el o los scripts (archivos con extensión .R)</li>
+<li>Ejecutamos cada línea del script leyendo la documentación y su salida en cada caso.</li>
+</ol>
+</section>
+</section>
+<section id="herramientas-de-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="herramientas-de-rstudio">Herramientas de RStudio</h2>
+<p>Algunas de las ventajas de utilizar Rstudio son las herramientas especiales de la interfaz del editor de código</p>
+<section id="asistente-de-código" class="level3">
+<h3 class="anchored" data-anchor-id="asistente-de-código">Asistente de código</h3>
+<p>Cuando escribimos desde el teclado en el editor de código o en la consola de RStudio tenemos una tecla que nos autocompleta el nombre de las funciones que vamos tipeando.</p>
+<p>Esta herramienta de autocompletado se ejecuta pulsando la <strong>tecla de tabulación</strong> (<strong>Tab</strong>) y nos muestra las posibilidades de finalizar las palabras que vamos escribiendo junto al esquema de argumentos obligatorios que tiene asociado dicha función.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RS1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Al sistematizar la escritura de código apoyándonos en el uso del autocompletado vamos a reducir la tasa de error de sintaxis, dado que las funciones, los argumentos y los nombres de las tablas y variables de nuestros datos van a estar correctamente escritos.</p>
+</section>
+<section id="ayuda-en-línea" class="level3">
+<h3 class="anchored" data-anchor-id="ayuda-en-línea">Ayuda en línea</h3>
+<p>Si necesitamos acceder a una ayuda adicional en línea bastará que presionemos la <strong>tecla F1</strong> con el cursor situado sobre el nombre de la función escrita en el editor de código para que aparezca la información relacionada en el <strong>bloque Help</strong> de Rstudio (generalmente panel abajo a la derecha).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RS2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="historial-de-funciones" class="level3">
+<h3 class="anchored" data-anchor-id="historial-de-funciones">Historial de funciones</h3>
+<p>Otra característica de utilidad dentro de la <strong>Consola</strong> de RStudio es que si nos situamos en el prompt activo, y pulsamos las teclas flecha hacia arriba o abajo, veremos pasar la lista completa de código ejecutado en la sesión de trabajo.</p>
+<p>Esto nos ayuda a la hora de volver a ejecutar una función o bien cuando debemos hacer alguna corrección de la o las líneas anteriores, puesto que nos ahorra tiempo y trabajo evitando volver a tener que tipear lo que ya escribimos.</p>
+<p>Este historial de funciones también lo encontramos en el bloque superior derecho de RStudio, dentro de la pestaña <strong>History</strong>.</p>
+<p>History almacena todos las funciones ejecutados en consola de forma acumulativa, incluso anidando sesión tras sesión.</p>
+<p>Los comandos que aparecen en ese panel se pueden copiar y pegar en la Consola o, de forma más directa, puedes seleccionar uno de ellos con el mouse, y pulsar en el <strong>botón To Console</strong> (Enter) para insertarlo en consola o <strong>To Source</strong> (Shitft+Enter) para insertarlo en el script activo en el que estemos trabajando.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RS3.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="atajos-de-teclados-relevantes-para-windows" class="level3">
+<h3 class="anchored" data-anchor-id="atajos-de-teclados-relevantes-para-windows">Atajos de teclados relevantes (para Windows)</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-5ec3278a{table-layout:auto;}.cl-5ebc6cce{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-5ebc6cd8{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5ebc6ce2{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5ebf50f6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5ebf6a32{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5ebf6a3c{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5ebf6a3d{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-5ec3278a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-5ebf6a32"><p class="cl-5ebf50f6"><span class="cl-5ebc6cce">Menú</span></p></th><th class="cl-5ebf6a32"><p class="cl-5ebf50f6"><span class="cl-5ebc6cce">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6cd8">Archivo (File)</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Shift + N</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Crea un nuevo script</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + O</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Abre un script guardado</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + S</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Guarda el script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + W</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Cierra el script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Q</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Sale del programa RStudio</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6cd8">Edición (Edit)</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + F</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Abre la ventana de búsqueda (para buscar palabras dentro de un script)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + L</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Limpia la consola</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6cd8">Código (Code)</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Enter</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ejecuta la línea de código donde está situado el cursor</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Alt + R</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ejecuta todo el código del script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Shift + N</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Inserta nueva sección de código</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6cd8">Sesión (Session)</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Shift + H</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Abre la ventana para establecer directorio de trabajo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Ctrl + Shift + F10</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Reinicia la sesión de R</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6cd8">Herramientas (Tools)</span></p></td><td class="cl-5ebf6a3c"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5ebf6a3d"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Alt + Shift + K</span></p></td><td class="cl-5ebf6a3d"><p class="cl-5ebf50f6"><span class="cl-5ebc6ce2">Abre la lista de ayuda de atajos de teclado</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+</section>
+<section id="paquetes-librerías" class="level2">
+<h2 class="anchored" data-anchor-id="paquetes-librerías">Paquetes (librerías)</h2>
+<p>R consta de un sistema base y de librerías adicionales, llamados paquetes (packages) que extienden su funcionalidad.</p>
+<p>Siendo <strong>open source</strong> cualquier persona puede construir paquetes con nuevas funciones, aunque no todos se publican en el repositorio CRAN (Comprehensive R Archive Network).</p>
+<p>Un grupo de paquetes conforman el sistema base que quedan activos cuando instalamos el software R.</p>
+<p>Otro grupo de paquetes recomendados forman parte de la distribución, y si bien no quedan activos automáticamente, si se pueden activar en forma manual por el usuario.</p>
+<p>Por último existe otro grupo de paquetes que se encuentran publicados en el repositorio para ser descargados cuando sea necesario. Actualmente existen más de 17000 paquetes para múltiples aplicaciones.</p>
+<p>Una de las fortalezas de R es justamente que el listado de paquetes se va ampliando constantemente mes a mes y esto incrementa las capacidades del programa.</p>
+<p>Existen dos formas de descargar estos paquetes, directamente desde RStudio/R y por medio del sitio web, descargándolos como archivos comprimidos .zip</p>
+<p>Si el equipo se encuentra conectado a Internet es más cómodo realizar las descargas desde RStudio, pero en el caso de no tener acceso permanente a la red, se pueden descargar desde la web en otro equipo y luego guardar en el equipo donde tenemos el programa R.</p>
+<p>El sitio web para las descargas de los paquetes publicados es https://cran.r-project.org/web/packages/</p>
+<p>Allí se encuentran los enlaces para ver el listado de paquetes ordenados alfabéticamente o por fecha de publicación.</p>
+<p>Una vez que ingresamos al link del paquete que nos interesa veremos en la página algunos datos relacionados como un breve texto de que trata el paquete, el numero de versión, la fecha de publicación, el autor, el archivo de documentación, y por supuesto los archivos a descargar para cada sistema operativo.</p>
+<p>Afortunadamente en la actualidad la mayoría de las computadoras cuentan con acceso a Internet por lo cual explicaremos como se puede descargar, instalar y activar los paquetes desde RStudio.</p>
+<p>RStudio tiene una pestaña específica para gestionar los paquetes ubicada de forma predeterminada en el bloque inferior derecho de la interfaz (<strong>Packages</strong>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RS4.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Prácticamente todos las acciones que nos facilita la interfaz de RStudio se traduce internamente en ejecuciones de funciones de R que podemos ver en la consola.</p>
+<p>La secuencia para instalar un paquete que no tengamos previamente instalado inicia a partir de pulsar el <strong>botón Install</strong> y la ventana emergente que visualizaremos es la siguiente:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RS5.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<section id="dependencias" class="level3">
+<h3 class="anchored" data-anchor-id="dependencias">Dependencias</h3>
+<p>La gran mayoría de las funciones que integran los paquetes que podemos descargar y utilizar están construidas en el mismo lenguaje R y para su elaboración se usan muchas veces funciones pertenecientes a otros paquetes.</p>
+<p>Que pasa cuando queremos ejecutar una función que necesita de otra que no tenemos instalada? Sucede que no es posible ejecutarla dado que no puede encontrar la o las funciones que están siendo llamadas en su propio código y no existen en la actual instalación de R; por lo tanto nos devolverá un mensaje de error alertando por la función desconocida.</p>
+<p>Esta relación de funciones que llaman a otras funciones se denomina <strong><em>dependencia</em></strong>. Es decir, que un paquete puede depender de otro u otros que tienen funciones que son llamadas y por ende, debe asegurarse su previa instalación para evitar el error.</p>
+<p>Hay una forma de asegurarnos cuando instalamos un paquete que a su vez se instalen los paquetes del cual depende y es marcando la opción <strong>Install dependencies</strong> en la ventana anterior (<strong>Install Packages</strong>).</p>
+</section>
+</section>
+<section id="lectura-de-archivos-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="lectura-de-archivos-de-datos">Lectura de archivos de datos</h2>
+<p>El lenguaje nos permite importar variados formatos de tablas de datos utilizando funciones propias de R base como de paquetes que se dedican a esta tarea.</p>
+<p>El formato nativo de tablas de datos de R es el texto plano (ASCII - Codigo Estadounidense Estandar para el Intercambio de Informacion) con sus columnas separadas por algún caracter. Estos pueden ser caracteres habituales como la coma (,) o el punto y coma (;) que da lugar a la extensión *.csv, o algunos especiales como la barra vertical (|) que suele utilizar el INDEC para sus productos o bien cualquier otro, como espacios o la tabulación.</p>
+<p>Otra característica que tienen estos archivos es que generalmente poseen una cabecera donde se ubican los nombres de cada columna/variable y por supuesto que cada una de ellas debe respetar un mismo tipo de dato para cumplir con la condición que la hace una tabla/base de datos.</p>
+<p>Lo más importante para hacer una buena lectura de la tabla de datos con la que deseamos trabajar es conocer previamente el formato que tiene, si tiene cabecera, que caracter usa como separador de columnas, etc. Al ser un texto plano se puede abrir desde un simple <strong>Block de Notas</strong> de Windows o desde el mismo <strong>RStudio</strong> para conocer sus particularidades.</p>
+</section>
+<section id="buenas-prácticas" class="level2">
+<h2 class="anchored" data-anchor-id="buenas-prácticas">Buenas prácticas</h2>
+<ul>
+<li>Utilizar siempre proyectos de RStudio (Rproj)</li>
+<li>Iniciar los scripts con las líneas de activación de paquetes necesarios para ejecutar las funciones incluídas en el código. ( función <code>library()</code> )</li>
+<li>Documentar el código por medio de comentarios (iniciados con <strong>#</strong>)</li>
+<li>Utilizar espacios e identación adecuada para que el código sea de fácil lectura. Para ayudar a mejorar la legibilidad y facilitar el compartir código con otros, existe una guía de estilo no oficial para escribir código R. Es bastante breve y tiene muchos ejemplos de buenas y malas formas de escribir código (nombrar variables, manejar líneas largas, usar niveles de sangría adecuados, etc.). La pueden encontrar en <a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a></li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
