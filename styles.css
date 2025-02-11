@@ -12,3 +12,8 @@ a {
   color: #2F2E4E; /* Cambiar color del texto de los enlaces */
   text-decoration: underline; /* Agregar subrayado al pasar el mouse */
 }
+
+
+table {
+    font-size: 8pt;
+}
