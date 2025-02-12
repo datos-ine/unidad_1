@@ -497,7 +497,7 @@ Valiant           4.496665  1  0 1.732051 1.000000</code></pre>
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Iden;Apellido;Nombre;Sexo;FNac<br>
+<td>Iden;Apellido;Nombre;sexo;FNac<br>
 9;Leone;Fernando;M;1958-12-24<br>
 26;Garcia;Laura;M;1954-01-21<br>
 35;Salamone;Nicolas;M;1993-06-27<br>
@@ -741,7 +741,8 @@ NULL</code></pre>
 <h3 class="anchored" data-anchor-id="función-select">Función select()</h3>
 <p>Esta función selecciona las variables que especificamos devolviendo un conjunto de datos “recortado por columna”.</p>
 <p>Veamos algunas variaciones de ayuda para hacer estas selecciones.</p>
-<p>Todas las variables menos <em>pob</em></p>
+<ul>
+<li><p>Todas las variables menos <em>pob:</em></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>pob)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -761,8 +762,11 @@ NULL</code></pre>
 10 Chubut        2016    89
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Otra forma para el mismo resultado anterior (mediante el operador rango :)</p>
+</div></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Otra forma para el mismo resultado anterior (mediante el operador rango <code>:</code>):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(jurisdiccion<span class="sc">:</span>casos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -782,8 +786,8 @@ NULL</code></pre>
 10 Chubut        2016    89
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Las variables <em>jurisdiccion</em> y <em>casos</em></p>
+</div></li>
+<li><p>Las variables <em>jurisdiccion</em> y <em>casos:</em></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(jurisdiccion, casos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -803,8 +807,8 @@ NULL</code></pre>
 10 Chubut          89
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Otra forma para el mismo resultado anterior (mediante números de columna):</p>
+</div></li>
+<li><p>Otra forma para el mismo resultado anterior (mediante números de columna):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>, <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -824,8 +828,8 @@ NULL</code></pre>
 10 Chubut          89
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Todas las variables pasando <em>año</em> a la primera columna</p>
+</div></li>
+<li><p>Todas las variables pasando <em>año</em> a la primera columna:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"año"</span>, <span class="fu">everything</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -845,7 +849,8 @@ NULL</code></pre>
 10  2016 Chubut          89   577922
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
+</div></li>
+</ul>
 <p>Otros posibles argumentos son:</p>
 <ul>
 <li><p><code>starts_with()</code>: selecciona todas las columnas que comiencen con el patrón indicado.</p></li>
@@ -861,7 +866,8 @@ NULL</code></pre>
 <section id="función-rename" class="level3">
 <h3 class="anchored" data-anchor-id="función-rename">Función rename()</h3>
 <p>Esta función es una extensión de <code>select()</code>, dado que esta última permite cambiar el nombre de variables pero no es muy útil porque descarta todas las variables que no se mencionan explícitamente. En cambio <code>rename()</code> renombra variables mientras que mantiene las demás no mencionadas.</p>
-<p>Por ejemplo, cambiamos el nombre de la variable <em>pob</em> por <em>población</em>.</p>
+<ul>
+<li><p>Por ejemplo, cambiamos el nombre de la variable <em>pob</em> por <em>población</em>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"población"</span> <span class="ot">=</span> pob)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -881,12 +887,15 @@ NULL</code></pre>
 10 Chubut        2016    89    577922
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
+</div></li>
+</ul>
 </section>
 <section id="función-filter" class="level3">
 <h3 class="anchored" data-anchor-id="función-filter">Función filter()</h3>
 <p>Así como la función <code>select()</code> es utilizada para seleccionar columnas, la función <code>filter()</code> hace lo propio con las filas del conjunto de datos, produciendo un subconjunto de observaciones.</p>
-<p>Veamos un ejemplo sencillo sobre nuestros datos:</p>
+<ul>
+<li>Veamos un ejemplo sencillo sobre nuestros datos:</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jurisdiccion <span class="sc">==</span> <span class="st">"Tucuman"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -898,21 +907,26 @@ NULL</code></pre>
 2 Tucuman       2016   246 1618421</code></pre>
 </div>
 </div>
-<p>Utiliza los mismos operadores de comparación propios del lenguaje R</p>
+<ul>
+<li>Utiliza los mismos operadores de comparación propios del lenguaje R</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-f422080a{table-layout:auto;}.cl-f41bebc8{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-f41bebe6{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f41e2668{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f41e395a{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f41e3964{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f41e3965{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f422080a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f41e395a"><p class="cl-f41e2668"><span class="cl-f41bebc8">Operador</span></p></th><th class="cl-f41e395a"><p class="cl-f41e2668"><span class="cl-f41bebc8">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">&lt;</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Menor a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">&gt;</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Mayor a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">&lt;=</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Menor o igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">&gt;=</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Mayor o igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">==</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">!=</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">No igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">%in%</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Es parte de</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">is.na()</span></p></td><td class="cl-f41e3964"><p class="cl-f41e2668"><span class="cl-f41bebe6">Es NA</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f41e3965"><p class="cl-f41e2668"><span class="cl-f41bebe6">!is.na()</span></p></td><td class="cl-f41e3965"><p class="cl-f41e2668"><span class="cl-f41bebe6">No es NA</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-94dba9c8{table-layout:auto;}.cl-94d66e0e{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-94d66e22{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-94d89a62{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-94d8bdee{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94d8bdf8{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94d8bdf9{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-94dba9c8"><thead><tr style="overflow-wrap:break-word;"><th class="cl-94d8bdee"><p class="cl-94d89a62"><span class="cl-94d66e0e">Operador</span></p></th><th class="cl-94d8bdee"><p class="cl-94d89a62"><span class="cl-94d66e0e">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">&lt;</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Menor a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">&gt;</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Mayor a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">&lt;=</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Menor o igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">&gt;=</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Mayor o igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">==</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">!=</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">No igual a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">%in%</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Es parte de</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">is.na()</span></p></td><td class="cl-94d8bdf8"><p class="cl-94d89a62"><span class="cl-94d66e22">Es NA</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94d8bdf9"><p class="cl-94d89a62"><span class="cl-94d66e22">!is.na()</span></p></td><td class="cl-94d8bdf9"><p class="cl-94d89a62"><span class="cl-94d66e22">No es NA</span></p></td></tr></tbody></table></div>
 </div>
 </div>
-<p>Lo mismo con los operadores lógicos que se utilizan como conectores entre las expresiones.</p>
+<ul>
+<li>Lo mismo con los operadores lógicos que se utilizan como conectores entre las expresiones:</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-f445dd2a{table-layout:auto;}.cl-f4413798{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-f44137a2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f4431b08{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f4432d5a{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4432d64{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f4432d65{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f445dd2a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f4432d5a"><p class="cl-f4431b08"><span class="cl-f4413798">Operador</span></p></th><th class="cl-f4432d5a"><p class="cl-f4431b08"><span class="cl-f4413798">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">&amp;</span></p></td><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">AND booleano</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">|</span></p></td><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">OR booleano</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">xor()</span></p></td><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">OR exclusivo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">!</span></p></td><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">NOT</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">any()</span></p></td><td class="cl-f4432d64"><p class="cl-f4431b08"><span class="cl-f44137a2">cualquier TRUE</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f4432d65"><p class="cl-f4431b08"><span class="cl-f44137a2">all()</span></p></td><td class="cl-f4432d65"><p class="cl-f4431b08"><span class="cl-f44137a2">todos TRUE</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-94fa3a8c{table-layout:auto;}.cl-94f5a116{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-94f5a120{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-94f77e28{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-94f79048{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94f79052{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94f79053{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-94fa3a8c"><thead><tr style="overflow-wrap:break-word;"><th class="cl-94f79048"><p class="cl-94f77e28"><span class="cl-94f5a116">Operador</span></p></th><th class="cl-94f79048"><p class="cl-94f77e28"><span class="cl-94f5a116">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">&amp;</span></p></td><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">AND booleano</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">|</span></p></td><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">OR booleano</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">xor()</span></p></td><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">OR exclusivo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">!</span></p></td><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">NOT</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">any()</span></p></td><td class="cl-94f79052"><p class="cl-94f77e28"><span class="cl-94f5a120">cualquier TRUE</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94f79053"><p class="cl-94f77e28"><span class="cl-94f5a120">all()</span></p></td><td class="cl-94f79053"><p class="cl-94f77e28"><span class="cl-94f5a120">todos TRUE</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>Cuando usamos múltiples argumentos separados por coma dentro de <code>filter()</code> se combinan con un conector <strong>AND</strong>, es decir cada expresión debe ser verdadera para que una fila sea incluida en la salida.</p>
 <p>Por ejemplo:</p>
-<p>Filtramos a las observaciones que cumplan con la condición que casos sea mayor a 100 y población sea menor a 1000000</p>
+<ul>
+<li><p>Filtramos a las observaciones que cumplan con la condición que casos sea mayor a 100 y población sea menor a 1000000:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(casos <span class="sc">&gt;</span> <span class="dv">100</span>, pob <span class="sc">&lt;</span> <span class="dv">1000000</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -928,9 +942,13 @@ NULL</code></pre>
 6 Rio Negro     2015   112 700000
 7 Rio Negro     2016   105 709459</code></pre>
 </div>
-</div>
+</div></li>
+</ul>
 <p>Para combinaciones dentro de una misma variable debemos utilizar el conector OR (<code>|</code>) o más útil el operador <code>%in%</code>.</p>
-<p>Filtramos a las jurisdicciones “Buenos Aires” y “La Pampa”</p>
+<ul>
+<li><p>datos |&gt;</p>
+<p>filter(jurisdiccion == “Buenos Aires” | jurisdiccion == “La Pampa”)</p></li>
+<li><p>Filtramos a las jurisdicciones “Buenos Aires” y “La Pampa”:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jurisdiccion <span class="sc">==</span> <span class="st">"Buenos Aires"</span> <span class="sc">|</span> jurisdiccion <span class="sc">==</span> <span class="st">"La Pampa"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -943,8 +961,6 @@ NULL</code></pre>
 3 La Pampa      2015    57   343373
 4 La Pampa      2016    67   345361</code></pre>
 </div>
-</div>
-<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jurisdiccion <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Buenos Aires"</span>, <span class="st">"La Pampa"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -956,8 +972,8 @@ NULL</code></pre>
 3 La Pampa      2015    57   343373
 4 La Pampa      2016    67   345361</code></pre>
 </div>
-</div>
-<p>Filtramos las observaciones de 2016 con casos mayores a 200 utilizando el conector AND (<code>&amp;</code>). Es el mismo resultado que si utilizamos una coma.</p>
+</div></li>
+<li><p>Filtramos las observaciones de 2016 con casos mayores a 200 utilizando el conector AND (<code>&amp;</code>). Es el mismo resultado que si utilizamos una coma:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(año <span class="sc">==</span> <span class="st">"2016"</span> <span class="sc">&amp;</span> casos <span class="sc">&gt;</span> <span class="dv">200</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -972,8 +988,8 @@ NULL</code></pre>
 5 Salta         2016   230  1352941
 6 Tucuman       2016   246  1618421</code></pre>
 </div>
-</div>
-<p>Filtramos las observaciones inversas a la anterior mediante <code>xor()</code>, que selecciona los valores de año y casos exclusivos (es decir que no se den ambos en TRUE).</p>
+</div></li>
+<li><p>Filtramos las observaciones inversas a la anterior mediante <code>xor()</code>, que selecciona los valores de año y casos exclusivos (es decir que no se den ambos en TRUE):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">xor</span>(año <span class="sc">==</span> <span class="st">"2016"</span>, casos <span class="sc">&gt;</span> <span class="dv">200</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -993,12 +1009,14 @@ NULL</code></pre>
 10 Jujuy         2016   133   734807
 # ℹ 15 more rows</code></pre>
 </div>
-</div>
+</div></li>
+</ul>
 </section>
 <section id="función-arrange" class="level3">
 <h3 class="anchored" data-anchor-id="función-arrange">Función arrange()</h3>
 <p>La función <code>arrange()</code> se utiliza para ordenar las filas de un conjunto de datos de acuerdo a una o varias columnas/variables. Por defecto, el ordenamiento es ascendente alfanumérico.</p>
-<p>Ordenamos la tabla <strong>datos</strong> por la variable <em>pob</em> (forma ascendente predeterminada):</p>
+<ul>
+<li><p>Ordenamos la tabla <strong>datos</strong> por la variable <em>pob</em> (forma ascendente predeterminada):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pob)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1018,8 +1036,8 @@ NULL</code></pre>
 10 Catamarca         2016    51 401575
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Para ordenar en forma descendente podemos utilizar <code>desc()</code> dentro de los argumentos de <code>arrange()</code>:</p>
+</div></li>
+<li><p>Para ordenar en forma descendente podemos utilizar <code>desc()</code> dentro de los argumentos de <code>arrange()</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pob))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1039,8 +1057,8 @@ NULL</code></pre>
 10 Mendoza       2015   316  1880952
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Podemos combinar ordenamientos. Por ejemplo, en forma alfabética ascendente para <em>jusrisdiccion</em> y luego numérica descendente para <em>casos</em>.</p>
+</div></li>
+<li><p>Podemos combinar ordenamientos. Por ejemplo, en forma alfabética ascendente para <em>jusrisdiccion</em> y luego numérica descendente para <em>casos</em>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(jurisdiccion, <span class="fu">desc</span>(casos))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1060,12 +1078,14 @@ NULL</code></pre>
 10 Chubut        2016    89   577922
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
+</div></li>
+</ul>
 </section>
 <section id="función-mutate" class="level3">
 <h3 class="anchored" data-anchor-id="función-mutate">Función mutate()</h3>
-<p>Esta función nos proporciona computar tranformaciones de variables en un conjunto de datos. A menudo, tendremos la necesidad de modificar variables existentes o crear nuevas variables que se calculan a partir de las que tenemos, <code>mutate()</code> nos ofrece una interface clara para realizar este tipo de operaciones.</p>
-<p>Por ejemplo, nos puede interesar calcular tasas crudas para cada jurisdicción y año, en función de los casos y el total de población.</p>
+<p>Esta función nos proporciona computar tranformaciones de variables en un conjunto de datos. A menudo, tendremos la necesidad de modificar variables existentes o crear nuevas variables que se calculan a partir de las que tenemos, <code>mutate()</code> nos ofrece una interfaz clara para realizar este tipo de operaciones.</p>
+<ul>
+<li><p>Por ejemplo, nos puede interesar calcular tasas crudas para cada jurisdicción y año, en función de los casos y el total de población:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tasa =</span> casos<span class="sc">/</span>pob<span class="sc">*</span><span class="dv">100000</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1086,8 +1106,8 @@ NULL</code></pre>
 # ℹ 38 more rows</code></pre>
 </div>
 </div>
-<p>Observemos que la función realiza el cálculo (en este caso tasas crudas por 100000 habitantes) e incorpora una nueva variable por cada observación con el resultado.</p>
-<p>También se pueden construir múltiples variables en la misma expresión, solamente separadas por comas.</p>
+<p>Observemos que la función realiza el cálculo (en este caso tasas crudas por 100000 habitantes) e incorpora una nueva variable por cada observación con el resultado.</p></li>
+<li><p>También se pueden construir múltiples variables en la misma expresión, solamente separadas por comas:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tasaxcien_mil =</span> casos<span class="sc">/</span>pob<span class="sc">*</span><span class="dv">100000</span>, </span>
@@ -1108,21 +1128,22 @@ NULL</code></pre>
 10 Chubut        2016    89   577922         15.4          1.54 
 # ℹ 38 more rows</code></pre>
 </div>
-</div>
-<p>Si necesitemos que estas dos nuevas variables queden dentro de la tabla de datos y no solo mostrarla en consola como hasta ahora, debemos utilizar el operador de asignación:</p>
+</div></li>
+<li><p>Si necesitemos que estas dos nuevas variables queden dentro de la tabla de datos y no solo mostrarla en consola como hasta ahora, debemos utilizar el operador de asignación:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">|&gt;</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tasaxcien_mil =</span> casos<span class="sc">/</span>pob<span class="sc">*</span><span class="dv">100000</span>, </span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">tasaxdiez_mil =</span> casos<span class="sc">/</span>pob<span class="sc">*</span><span class="dv">10000</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</div></li>
+</ul>
 <p>La propiedad imprescindible es que la función debe poder vectorizar: debe tomar un vector de valores como entrada, y devolver un vector con el mismo número de valores que la salida.</p>
 <p>No hay forma de enumerar todas las funciones posibles que se podría usar, pero mencionaremos algunas que pueden ser útiles:</p>
 <ul>
-<li><p>Operadores aritméticos: +, -, *, /, ^.</p></li>
-<li><p>Aritmética modular: %/% (división entera) y %% (resto), donde <span class="math inline">\(x == y * (x \ \%/\% \ y) + (x\ \%\% \ y)\)</span>. La aritmética modular es una herramienta útil porque te permite dividir números enteros en porciones.</p></li>
-<li><p>Funciones matemáticas: <code>log()</code>, <code>log2()</code>, <code>log10()</code>, <code>exp()</code>, <code>sqrt()</code>, <code>abs()</code>, etc</p></li>
+<li><p>Operadores aritméticos: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>.</p></li>
+<li><p>Aritmética modular: <code>%/%</code> (división entera) y <code>%%</code> (resto), donde <span class="math inline">\(x == y * (x \ \%/\% \ y) + (x\ \%\% \ y)\)</span>. La aritmética modular es una herramienta útil porque te permite dividir números enteros en porciones.</p></li>
+<li><p>Funciones matemáticas: <code>log()</code>, <code>log2()</code>, <code>log10()</code>, <code>exp()</code>, <code>sqrt()</code>, <code>abs()</code>, etc.</p></li>
 <li><p>Valores acumulados: R proporciona funciones para ejecutar sumas, productos, mínimos y máximos acumulados: <code>cumsum()</code>, <code>cumprod()</code>, <code>cummin()</code>, <code>cummax()</code>; y <code>dplyr</code> proporciona <code>cummean()</code> para promedios acumulados.</p></li>
-<li><p>Clasificaciones (ranking): hay una serie de funciones de clasificación, por ejemplo <code>min_rank()</code>. Genera el tipo de clasificación habitual (1º, 2º, etc). El valor predeterminado relaciona los valores más pequeños a rangos pequeños; podemos usar <code>desc(x)</code> para invertir la relación (valores más grandes a rangos más pequeños)</p></li>
+<li><p>Clasificaciones (ranking): hay una serie de funciones de clasificación, por ejemplo <code>min_rank()</code>. Genera el tipo de clasificación habitual (1º, 2º, etc). El valor predeterminado relaciona los valores más pequeños a rangos pequeños; podemos usar <code>desc(x)</code> para invertir la relación (valores más grandes a rangos más pequeños).</p></li>
 </ul>
 <p>Si utilizamos el mismo nombre de una variable incluída dentro de la tabla de datos, estaremos sobrescribiendola (se usa cuando transformamos una variable, por ejemplo: le cambiamos su tipo de <code>character</code> a <code>factor</code>). Para que la variable sea nueva debe nombrarse con un nombre que no exista previamente dentro de la tabla de datos.</p>
 </section>
@@ -1141,7 +1162,7 @@ NULL</code></pre>
 </div>
 </div>
 <p>Su uso es muy interesante cuando la combinamos con <code>group_by()</code> (función que detallaremos luego). Esta situación permite estratificar los resultados por grupos específicos.</p>
-<p>Por ejemplo, podemos agrupar el por año y simultáneamente aplicar el mismo <code>summarise()</code> anterior.</p>
+<p>Por ejemplo, podemos agrupar el por año y simultáneamente aplicar el mismo <code>summarise()</code> anterior:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(año) <span class="sc">|&gt;</span> </span>
@@ -1200,11 +1221,11 @@ NULL</code></pre>
 # ℹ 38 more rows</code></pre>
 </div>
 </div>
-<p>En la mayoría de estos ejemplos la salida es directa, es decir no construimos nuevos objetos contenedores de los datos producidos. Pero en muchas situaciones vamos a necesitar generar nuevos conjunto de datos con las transformaciones realizadas. Si en alguna de estas ocasiones llegamos a agrupar datos mediante <code>group_by()</code> y posteriormente necesitamos volver a tener la información desagrupada existe una función vinculada denominada <code>ungroup()</code></p>
+<p>En la mayoría de estos ejemplos la salida es directa, es decir no construimos nuevos objetos contenedores de los datos producidos. Pero en muchas situaciones vamos a necesitar generar nuevos conjunto de datos con las transformaciones realizadas. Si en alguna de estas ocasiones llegamos a agrupar datos mediante <code>group_by()</code> y posteriormente necesitamos volver a tener la información desagrupada existe una función vinculada denominada <code>ungroup()</code>.</p>
 </section>
 <section id="combinaciones" class="level3">
 <h3 class="anchored" data-anchor-id="combinaciones">Combinaciones</h3>
-<p>En los ejemplos anteriores vimos como se van integrando alguna de las funciones mediante el uso de la tubería <code>%&gt;%</code> o <strong><code>|&gt;</code></strong>. La idea detrás de la búsqueda gramatical del paquete es poder enlazar las acciones para construir oraciones más complejas.</p>
+<p>En los ejemplos anteriores vimos como se van integrando alguna de las funciones mediante el uso de la tubería <code>%&gt;%</code> o <code>|&gt;</code>. La idea detrás de la búsqueda gramatical del paquete es poder enlazar las acciones para construir oraciones más complejas.</p>
 <p>Un ejemplo que podría integrar gran parte de los visto sería:</p>
 <p>Obtener una nueva tabla con las tasas crudas de casos notificados de VIH, por año y jurisdicción, mayores a 20 x 100000 habitantes ordenadas de mayor a menor.</p>
 <div class="cell" data-layout-align="center">
@@ -1230,8 +1251,7 @@ NULL</code></pre>
 </section>
 <section id="función-count" class="level3">
 <h3 class="anchored" data-anchor-id="función-count">Función count()</h3>
-<p>Esta última función que presentamos permite contar rápidamente los valores únicos de una o más variables.</p>
-<p>Produce fácilmente tablas de frecuencias absolutas que luego posibilitan construir frecuencias relativas.</p>
+<p>Esta última función que presentamos permite contar rápidamente los valores únicos de una o más variables. Produce fácilmente tablas de frecuencias absolutas que luego posibilitan construir frecuencias relativas.</p>
 <p>La aplicamos sobre la variable <strong>jurisdiccion</strong> de <em>datos:</em></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
@@ -1273,7 +1293,7 @@ NULL</code></pre>
 <p>La estructura para construir un gráfico es la siguiente:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/estructura_ggplot.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="images/estructura_ggplot.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 <section id="anatomía-de-gráficos-con-ggplot2" class="level3">
@@ -1281,7 +1301,7 @@ NULL</code></pre>
 <p>El paquete se basa en una gramática de gráficos que puede ser entendida a partir de conocer sus componentes:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ggplot1.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="images/ggplot1.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 <ul>
@@ -1303,7 +1323,7 @@ NULL</code></pre>
 <span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(facultad) <span class="co"># mostramos las 6 primeras observaciones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 18
-     HC SEXO   EDAD ANT_DIABETES ANT_TBC ANT_CANCER ANT_OBESIDAD ANT_ECV ANT_HT
+     hc sexo   edad ant_diabetes ant_tbc ant_cancer ant_obesidad ant_ecv ant_ht
   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt; 
 1 26880 M        17 NO           NO      NO         SI           NO      SI    
 2 26775 M        18 SI           NO      NO         NO           NO      NO    
@@ -1311,20 +1331,33 @@ NULL</code></pre>
 4 26776 M        18 NO           NO      NO         SI           SI      NO    
 5 26718 M        18 NO           NO      NO         NO           NO      SI    
 6 26738 M        18 NO           NO      NO         NO           NO      SI    
-# ℹ 9 more variables: ANT_COL &lt;chr&gt;, FUMA &lt;chr&gt;, EDADINI &lt;dbl&gt;, CANTIDAD &lt;dbl&gt;,
-#   COL &lt;dbl&gt;, PESO &lt;dbl&gt;, TALLA &lt;dbl&gt;, SIST &lt;dbl&gt;, DIAST &lt;dbl&gt;</code></pre>
+# ℹ 9 more variables: ant_col &lt;chr&gt;, fuma &lt;chr&gt;, edadini &lt;dbl&gt;, cantidad &lt;dbl&gt;,
+#   col &lt;dbl&gt;, peso &lt;dbl&gt;, talla &lt;dbl&gt;, sist &lt;dbl&gt;, diast &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>El archivo leído se llama <em>“<strong>facultad.csv</strong>”</em> y contiene información de salud sobre ingresantes a una facultad tales como sexo, edad, talla y peso, entre otras. (son datos ficticios con fines docentes).</p>
 </section>
 <section id="mapeo-estético-aesthetic-mapping-y-objetos-geométricos-geom" class="level3">
 <h3 class="anchored" data-anchor-id="mapeo-estético-aesthetic-mapping-y-objetos-geométricos-geom">Mapeo estético (<em>aesthetic mapping</em>) y objetos geométricos (<em>geom</em>)</h3>
-<p>Decíamos que <code>aes()</code> hace referencia al contenido estético del gráfico. Es decir, la función le brinda indicios a <strong>ggplot2</strong> sobre cómo dibujar los distintas líneas, formas, colores y tamaños.</p>
+<p>Decíamos que <code>aes()</code> hace referencia al contenido estético del gráfico. Es decir, la función le brinda indicios a <code>ggplot2</code> sobre cómo dibujar los distintas líneas, formas, colores y tamaños.</p>
 <p>Es importante notar que <code>aes()</code> crea una nueva capa en relación a las variables y agrega leyendas a los gráficos. Al incorporar <code>aes()</code> al llamado de <code>ggplot()</code> estamos compartiendo la información estética en todas las capas. Si deseamos que esa información sólo esté en una de las capas, debemos usar <code>aes()</code> en la capa correspondiente.</p>
 <p>Veamos como funciona y sus diferencias:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO)) <span class="co"># solo la capa estética aes()</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso)) <span class="co"># solo la capa estética aes()</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Este gráfico solo contiene los ejes que especificamos (<em>peso</em> y <em>talla</em>) pero no contiene los datos. Si deseamos incorporarlos agregamos una capa de puntos con <code>geom_point()</code> a través del símbolo <strong><code>+</code></strong>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso))  <span class="sc">+</span> </span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()                    <span class="co"># agregamos la capa geométrica de puntos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1333,11 +1366,11 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Este gráfico solo contiene los ejes que especificamos (PESO y TALLA) pero no contiene los datos. Si deseamos incorporarlos agregamos una capa de puntos con <code>geom_point()</code> a través del símbolo <strong>+</strong>:</p>
+<p>Podemos diferenciar los puntos según se traten de ingresantes mujeres y hombres, asociando el argumento <strong>color</strong> dentro de <code>aes()</code> con la variable <em>sexo</em>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO))  <span class="sc">+</span> </span>
-<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()                    <span class="co"># agregamos la capa geométrica de puntos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso, <span class="at">color =</span> sexo)) <span class="sc">+</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1346,11 +1379,12 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Podemos diferenciar los puntos según se traten de ingresantes mujeres y hombres, asociando el argumento <strong>color</strong> dentro de <code>aes()</code> con la variable SEXO:</p>
+<p>Estos gráficos también posibilitan el agregado de otra capa geométrica, por ejemplo rectas de regresión para cada grupo según <em>sexo</em>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO, <span class="at">color =</span> SEXO)) <span class="sc">+</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso, <span class="at">color =</span> sexo)) <span class="sc">+</span> </span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)            <span class="co"># agregamos una segunda capa geométrica </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1359,12 +1393,16 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Estos gráficos también posibilitan el agregado de otra capa geométrica, por ejemplo rectas de regresión para cada grupo según sexo:</p>
+<p>Esta función <code>geom_smooth()</code> posee distintos métodos y en este ejemplo utilizamos el de regresión lineal entre <em>talla</em> y <em>peso</em> junto a sus intervalos de confianza.</p>
+<p>A continuación vamos a ver que diferencias existen cuando <code>aes()</code> se encuentra dentro del <code>ggplot()</code> y cuando se ubica en otras capas de funciones como en <code>geom_point()</code>.</p>
+<p>Decíamos anteriormente que al incorporar <code>aes()</code> al llamado de <code>ggplot()</code> estamos compartiendo la información estética en todas las capas.</p>
+<p>Entonces si quitamos <code>aes()</code> de allí y lo ubicamos en una capa única, esta configuración deja de afectar al conjunto del gráfico:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO, <span class="at">color =</span> SEXO)) <span class="sc">+</span> </span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)            <span class="co"># agregamos una segunda capa geométrica </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso)) <span class="sc">+</span> </span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> sexo)) <span class="sc">+</span> <span class="co"># color esta definido en el aes() </span></span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="co"># de la capa geométrica</span></span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1373,16 +1411,24 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Esta función <code>geom_smooth()</code> posee distintos métodos y en este ejemplo utilizamos el de regresión lineal entre talla y peso junto a sus intervalos de confianza.</p>
-<p>A continuación vamos a ver que diferencias existen cuando <code>aes()</code> se encuentra dentro del <code>ggplot()</code> y cuando se ubica en otras capas de funciones como en <code>geom_point()</code></p>
-<p>Decíamos anteriormente que al incorporar <code>aes()</code> al llamado de <code>ggplot()</code> estamos compartiendo la información estética en todas las capas.</p>
-<p>Entonces si quitamos <code>aes()</code> de allí y lo ubicamos en una capa única, esta configuración deja de afectar al conjunto del gráfico:</p>
+<p>En este ejemplo, <code>aes()</code> para el color solo se ubica dentro de <code>geom_point()</code> y por lo tanto dibuja los puntos con sus respectivos colores, pero no afecta a la capa de <code>geom_smooth()</code> produciendo solo una línea de regresión para el conjunto de puntos.</p>
+<p>Es decir que <code>geom_smooth()</code> no recibe la orden de agrupar según <em>sexo</em>, a raíz de no haber definido color dentro del <code>aes()</code> general.</p>
+<p>Este comportamiento nos permite gran versatilidad en los gráficos que realicemos.</p>
+<p>Algunas otras funciones de <strong>geom_</strong> son:</p>
+<ul>
+<li><p><code>geom_line()</code>: para líneas.</p></li>
+<li><p><code>geom_boxplot()</code>: para boxplot.</p></li>
+<li><p><code>geom_histogram()</code>: para histogramas.</p></li>
+<li><p><code>geom_density()</code>: para curvas de densidad.</p></li>
+<li><p><code>geom_bar()</code>: para barras.</p></li>
+</ul>
+<p>Estas funciones geométricas aplicadas sobre los mismos datos definen el tipo de gráfico.</p>
+<p>Para ejemplificar, podemos gráficar dos variables como <em>sexo</em> y <em>talla</em> generando una base a la que sumaremos capas diferentes de <code>geom()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO)) <span class="sc">+</span> </span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> SEXO)) <span class="sc">+</span> <span class="co"># color esta definido en el aes() </span></span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="co"># de la capa geométrica</span></span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de puntos</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">color =</span> sexo)) <span class="sc">+</span> </span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()                <span class="co"># capa geométrica de puntos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1390,62 +1436,36 @@ NULL</code></pre>
 </figure>
 </div>
 </div>
-</div>
-<p>En este ejemplo, <code>aes()</code> para el color solo se ubica dentro de <code>geom_point()</code> y por lo tanto dibuja los puntos con sus respectivos colores, pero no afecta a la capa de <code>geom_smooth()</code> produciendo solo una línea de regresión para el conjunto de puntos.</p>
-<p>Es decir que <code>geom_smooth()</code> no recibe la orden de agrupar según SEXO, a raíz de no haber definido color dentro del <code>aes()</code> general.</p>
-<p>Este comportamiento nos permite gran versatilidad en los gráficos que realicemos.</p>
-<p>Algunas otras funciones de <strong>geom_</strong> son:</p>
-<ul>
-<li><p><code>geom_line()</code>: para líneas</p></li>
-<li><p><code>geom_boxplot()</code>: para boxplot</p></li>
-<li><p><code>geom_histogram()</code>: para histogramas</p></li>
-<li><p><code>geom_density()</code>: para curvas de densidad</p></li>
-<li><p><code>geom_bar()</code>: para barras</p></li>
-</ul>
-<p>Estas funciones geométricas aplicadas sobre los mismos datos definen el tipo de gráfico.</p>
-<p>Para ejemplificar, podemos gráficar dos variables como SEXO y TALLA generando una base a la que sumaremos capas diferentes de <code>geom()</code>:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de puntos</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">color =</span> SEXO)) <span class="sc">+</span> </span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()                <span class="co"># capa geométrica de puntos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
-</figure>
-</div>
-</div>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">color =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">color =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()            <span class="co"># capa geométrica de boxplot</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-53-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-52-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entramado de puntos</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">color =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">color =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()               <span class="co"># capa geométrica jitter (entramado de puntos)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-53-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-52-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de violín</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">fill =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">fill =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()            <span class="co"># capa geométrica de violin</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-53-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-52-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -1455,17 +1475,17 @@ NULL</code></pre>
 <section id="escalas-scale" class="level3">
 <h3 class="anchored" data-anchor-id="escalas-scale">Escalas (<em>scale</em>)</h3>
 <p>Las configuraciones que se pueden realizar con <strong>scale</strong> son numerosas. Entre ellas encontramos cambios de color de contorno y relleno, cambios de posición, de tamaño y tipo de línea.</p>
-<p>El argumento para modificar valores de escala comienzan siempre con con <code>scale_</code> (por ejemplo <code>scale_fill_</code> )</p>
+<p>El argumento para modificar valores de escala comienzan siempre con con <code>scale_</code> (por ejemplo <code>scale_fill_</code> ).</p>
 <p>Sigamos trabajando con el conjunto de datos leído para mostrar ejemplos de gráficos donde agregamos capas de escala para color de relleno:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">fill =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">fill =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Oranges"</span>)   <span class="co"># paleta de los naranjas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -1474,9 +1494,23 @@ NULL</code></pre>
 <p>Lo mismo hacemos para una gama de grises mediante <code>scale_fill_grey()</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">fill =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">fill =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.4</span>, <span class="at">end =</span> <span class="fl">0.8</span>)   <span class="co"># paleta de los grises</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Otro uso de escalas, esta vez aplicado a los ejes, es la inversión del eje X:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso, <span class="at">color =</span> sexo)) <span class="sc">+</span></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()     <span class="co"># escala inversa de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1485,33 +1519,19 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Otro uso de escalas, esta vez aplicado a los ejes, es la inversión del eje X:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO, <span class="at">color =</span> SEXO)) <span class="sc">+</span></span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()     <span class="co"># escala inversa de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Como se observa en el gráfico la inclusión de <code>scale_x_reverse()</code> provoca que la escala X se invierta, quedando la TALLA ordenada de mayor a menor.</p>
+<p>Como se observa en el gráfico la inclusión de <code>scale_x_reverse()</code> provoca que la escala X se invierta, quedando la talla ordenada de mayor a menor.</p>
 <p>Por último, otro ejemplo interesante es aplicado a escalas de etiquetado de ejes. Volvamos al ejemplo reciente de <em>boxplot</em> con relleno en escala de grises, su eje Y se dibuja predeterminado desde 130 a casi 200 cms con cortes cada 5 cms y etiquetas cada 10 cms.</p>
 <p>Con escalas continuas manuales de la forma <code>scale_*_continuos()</code> podemos personalizar el eje Y:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">fill =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">fill =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.4</span>, <span class="at">end =</span> <span class="fl">0.8</span>)   <span class="sc">+</span></span>
 <span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">130</span>,<span class="dv">200</span>,<span class="dv">2</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -1524,21 +1544,21 @@ NULL</code></pre>
 <p>Estos valores se encuentra en forma de argumentos dentro de la función geométrica, por ejemplo para los histograma el argumento <strong>bins</strong> define la cantidad de intervalos de clase:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(EDAD)) <span class="sc">+</span></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="fu">nclass.Sturges</span>(facultad<span class="sc">$</span>EDAD), <span class="at">fill =</span> <span class="st">"Blue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(edad)) <span class="sc">+</span></span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="fu">nclass.Sturges</span>(facultad<span class="sc">$</span>edad), <span class="at">fill =</span> <span class="st">"Blue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Vemos que el gráfico se construyó utilizando la <em>regla de Sturges</em> para determinar la cantidad de intervalos de clase para la variable EDAD. (función <code>nclass.Sturges()</code>)</p>
-<p>Otras transformaciones estadísticas se incorporan como capas independientes, por ejemplo si queremos agregar los valores de media a los <em>boxplot</em> de talla según sexo construidos anteriormente:</p>
+<p>Vemos que el gráfico se construyó utilizando la <em>regla de Sturges</em> para determinar la cantidad de intervalos de clase para la variable edad. (función <code>nclass.Sturges()</code>)</p>
+<p>Otras transformaciones estadísticas se incorporan como capas independientes, por ejemplo si queremos agregar los valores de media a los <em>boxplot</em> de talla según <em>sexo</em> construidos anteriormente:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, TALLA, <span class="at">fill =</span> SEXO)) <span class="sc">+</span> </span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, talla, <span class="at">fill =</span> sexo)) <span class="sc">+</span> </span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Greens"</span>) <span class="sc">+</span></span>
 <span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">geom =</span> <span class="st">"point"</span>, </span>
@@ -1546,7 +1566,7 @@ NULL</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -1562,12 +1582,27 @@ NULL</code></pre>
 <li><p><code>facet_wrap()</code> – define subgrupos a partir de los niveles de una sola variable categórica</p></li>
 <li><p><code>facet_grid()</code> – define subgrupos a partir del cruce de dos variables de categóricas.</p></li>
 </ul>
-<p>Una aplicación de <code>facet_wrap()</code> podría ser que el primer gráfico que hicimos de dispersión de puntos con las variables TALLA y PESO se visualice en dos gráficos distintos según cada categoría de SEXO:</p>
+<p>Una aplicación de <code>facet_wrap()</code> podría ser que el primer gráfico que hicimos de dispersión de puntos con las variables talla y peso se visualice en dos gráficos distintos según cada categoría de <em>sexo</em>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(TALLA, PESO, <span class="at">color =</span> SEXO)) <span class="sc">+</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(talla, peso, <span class="at">color =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_wrap</span>(<span class="sc">~</span>SEXO)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Usamos <code>facet_grid()</code> para crear una matriz producto del cruce de las variables <em>fuma</em> y <em>sexo</em>. Dentro de la cuadrícula graficaremos histogramas de la variable peso coloreados por <em>sexo</em>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(peso, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="fu">nclass.Sturges</span>(facultad<span class="sc">$</span>peso)) <span class="sc">+</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_grid</span>(sexo <span class="sc">~</span> fuma)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1576,22 +1611,7 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Usamos <code>facet_grid()</code> para crear una matriz producto del cruce de las variables FUMA y SEXO.Dentro de la cuadrícula graficaremos histogramas de la variable PESO coloreados por SEXO:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(PESO, <span class="at">fill =</span> SEXO)) <span class="sc">+</span></span>
-<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="fu">nclass.Sturges</span>(facultad<span class="sc">$</span>PESO)) <span class="sc">+</span></span>
-<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
-<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_grid</span>(SEXO <span class="sc">~</span> FUMA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Si observamos las 4 líneas que integran todas las capas del código de ggplot notaremos que estamos integrando varias de las funciones que fuimos mostrando.</p>
+<p>Si observamos las 4 líneas que integran todas las capas del código de <code>ggplot2</code> notaremos que estamos integrando varias de las funciones que fuimos mostrando.</p>
 <p>Se hace imposible generar todas combinaciones posibles dada la variedad y extensión de argumentos que posee el paquete. De todas formas, el objetivo de este material es entender la base de funcionamiento, es decir la estructura “gramatical” que proponen sus autores.</p>
 </section>
 <section id="sistema-de-coordenadas-coordinate-systems" class="level3">
@@ -1600,14 +1620,14 @@ NULL</code></pre>
 <p>Sobre las coordenadas cartesianas iniciales se puede invertir la orientación para que, por ejemplo, las barras se dibujen horizontales:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, <span class="at">fill =</span> SEXO)) <span class="sc">+</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
 <span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>()   <span class="co"># invierte disposición de ejes</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -1619,11 +1639,27 @@ NULL</code></pre>
 <p>A modo de ejemplo repetimos el último gráfico con el tema blanco y negro ( <code>theme_bw()</code> ):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, <span class="at">fill =</span> SEXO)) <span class="sc">+</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
 <span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_bw</span>()  <span class="co"># tema blanco y negro</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Otro tema que podemos utilizar es <code>theme_dark()</code> que tiene un fondo gris oscuro:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_dark</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1632,43 +1668,27 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<p>Otro tema que podemos utilizar es <code>theme_dark()</code> que tiene un fondo gris oscuro:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, <span class="at">fill =</span> SEXO)) <span class="sc">+</span></span>
-<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
-<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_dark</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>El siguiente cuadro muestra el nombre y presentación de los temas que contiene el paquete.</p>
+<p>El siguiente cuadro muestra el nombre y presentación de los temas que contiene el paquete:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/temas_ggplot.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Continuando con cuestiones estéticas en otra capa se pueden definir etiquetas, como título, subtítulo y nombres de ejes.</p>
-<p>La forma de la función con argumentos básicos es <code>labs( x = “Etiqueta X", y = “Etiqueta Y", title =“Título del gráfico", subtitle = "Subtítulo del gráfico")</code></p>
+<p>La forma de la función con argumentos básicos es <code>labs( x = “Etiqueta X", y = “Etiqueta Y", title =“Título del gráfico", subtitle = "Subtítulo del gráfico")</code>.</p>
 <p>Además se utiliza la función <code>theme()</code> para configurar el tipo de fuente y tamaño, entre otras opciones posibles:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>facultad <span class="sc">|&gt;</span></span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SEXO, <span class="at">fill =</span> SEXO)) <span class="sc">+</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sexo, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
 <span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Cantidad"</span>, <span class="at">title =</span> <span class="st">"Distribución de Sexo"</span>) <span class="sc">+</span></span>
+<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Cantidad"</span>, <span class="at">title =</span> <span class="st">"Distribución de sexo"</span>) <span class="sc">+</span></span>
 <span id="cb104-7"><a href="#cb104-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">face=</span><span class="st">"italic"</span>, <span class="at">size=</span><span class="dv">16</span>)) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tidyverse_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+<p><img src="tidyverse_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -1682,16 +1702,19 @@ NULL</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"esquisse"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego se puede acceder a la aplicación por medio del acceso Addins</p>
+<p>Luego se puede acceder a la aplicación por medio del acceso Addins:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/esquisse.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<p>o ejecutando en consola <code>esquisser()</code></p>
+<p>o ejecutando en consola:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">esquisser</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>También se puede agregar el nombre de la tabla de datos dentro de los paréntesis</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">esquisser</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">esquisser</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Para más información consultar en la <a href="https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html">viñeta</a> del paquete en CRAN.</p>
 
