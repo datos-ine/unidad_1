@@ -36,10 +36,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8aa8884591a9136173b71f6048871fae.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -67,10 +69,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
-<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-
-<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
-
+<style type="text/css">
+.quarto-reader-toggle .bi::before, .quarto-color-scheme-toggle .bi::before {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-size: 25px 25px;
+  background-position: center;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(189, 195, 199, 1)" class="bi bi-moon-stars-fill" viewBox="0 0 16 16"> <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/> <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/> </svg>') !important;
+}
+</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -99,9 +107,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="https://ine.gov.ar/" class="sidebar-logo-link">
       <img src="./images/logos_ine.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -178,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lectura-de-archivos-de-datos" id="toc-lectura-de-archivos-de-datos" class="nav-link" data-scroll-target="#lectura-de-archivos-de-datos">Lectura de archivos de datos</a></li>
   <li><a href="#buenas-prácticas" id="toc-buenas-prácticas" class="nav-link" data-scroll-target="#buenas-prácticas">Buenas prácticas</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="pasos.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="datos.zip"><i class="bi bi-folder"></i>Archivos de datos</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="pasos.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="datos.zip"><i class="bi bi-folder"></i>Archivos de datos</a></li></ul></div><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="http://capacitacion.anlis.gob.ar/"><i class="bi bi-tag-fill"></i>Plataforma Educativa ANLIS</a></li><li><a href="https://github.com/datos-ine/unidad_1"><i class="bi bi-github"></i>Github</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -386,11 +397,99 @@ Este material es parte de la Unidad 1 del curso de Epidemiología - Nivel Avanza
 </section>
 <section id="atajos-de-teclados-relevantes-para-windows" class="level3">
 <h3 class="anchored" data-anchor-id="atajos-de-teclados-relevantes-para-windows">Atajos de teclados relevantes (para Windows)</h3>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="tabwid"><style>.cl-8d9b32be{table-layout:auto;}.cl-8d962864{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-8d962878{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8d98409a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8d9853be{background-color:rgba(47, 46, 78, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8d9853c8{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8d9853c9{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8d9b32be"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8d9853be"><p class="cl-8d98409a"><span class="cl-8d962864">Menú</span></p></th><th class="cl-8d9853be"><p class="cl-8d98409a"><span class="cl-8d962864">Descripción</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Archivo (File)</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Shift + N</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Crea un nuevo script</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + O</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Abre un script guardado</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + S</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Guarda el script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + W</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Cierra el script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Q</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Sale del programa RStudio</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Edición (Edit)</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + F</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Abre la ventana de búsqueda (para buscar palabras dentro de un script)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + L</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Limpia la consola</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Código (Code)</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Enter</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ejecuta la línea de código donde está situado el cursor</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Alt + R</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ejecuta todo el código del script activo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Shift + N</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Inserta nueva sección de código</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Sesión (Session)</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Shift + H</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Abre la ventana para establecer directorio de trabajo</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Ctrl + Shift + F10</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Reinicia la sesión de R</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878">Herramientas (Tools)</span></p></td><td class="cl-8d9853c8"><p class="cl-8d98409a"><span class="cl-8d962878"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8d9853c9"><p class="cl-8d98409a"><span class="cl-8d962878">Alt + Shift + K</span></p></td><td class="cl-8d9853c9"><p class="cl-8d98409a"><span class="cl-8d962878">Abre la lista de ayuda de atajos de teclado</span></p></td></tr></tbody></table></div>
-</div>
-</div>
+<style type="text/css">
+.tg  {border:none;border-collapse:collapse;border-color:#aaa;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#aaa;border-style:solid;border-width:0px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f38630;border-color:#aaa;border-style:solid;border-width:0px;color:#fff;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-jp1x{background-color:#2f2e4e;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+
+<table class="tg caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="tg-jp1x" data-quarto-table-cell-role="th">Menú</th>
+<th class="tg-jp1x" data-quarto-table-cell-role="th">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="tg-0lax"><span style="font-weight:bold">Archivo (File)</span></td>
+<td class="tg-0lax"></td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Ctrl + Shift + N</td>
+<td class="tg-0lax">Crea un nuevo script</td>
+</tr>
+<tr class="odd">
+<td class="tg-0lax">Ctrl + O</td>
+<td class="tg-0lax">Abre un script guardado</td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Ctrl + S</td>
+<td class="tg-0lax">Guarda el script activo</td>
+</tr>
+<tr class="odd">
+<td class="tg-0lax">Ctrl + W</td>
+<td class="tg-0lax">Cierra el script activo</td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Ctrl + Q</td>
+<td class="tg-0lax">Sale del programa RStudio</td>
+</tr>
+<tr class="odd">
+<td class="tg-1wig">Edición (Edit)</td>
+<td class="tg-0lax"></td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Ctrl + F</td>
+<td class="tg-0lax">Abre la ventana de búsqueda (para buscar palabras dentro de un script)</td>
+</tr>
+<tr class="odd">
+<td class="tg-0lax">Ctrl + L</td>
+<td class="tg-0lax">Limpia la consola</td>
+</tr>
+<tr class="even">
+<td class="tg-1wig">Código (Code)</td>
+<td class="tg-0lax"></td>
+</tr>
+<tr class="odd">
+<td class="tg-0lax">Ctrl + Enter</td>
+<td class="tg-0lax">Ejecuta la línea de código donde está situado el cursor</td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Ctrl + Alt + R</td>
+<td class="tg-0lax">Ejecuta todo el código del script activo</td>
+</tr>
+<tr class="odd">
+<td class="tg-0lax">Ctrl + Shift + N</td>
+<td class="tg-0lax">Inserta nueva sección de código</td>
+</tr>
+<tr class="even">
+<td class="tg-1wig">Sesión (Session)</td>
+<td class="tg-0lax"></td>
+</tr>
+<tr class="odd">
+<td class="tg-0lax">Ctrl + Shift + H</td>
+<td class="tg-0lax">Abre la ventana para establecer directorio de trabajo</td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Ctrl + Shift + F10</td>
+<td class="tg-0lax">Reinicia la sesión de R</td>
+</tr>
+<tr class="odd">
+<td class="tg-1wig">Herramientas (Tools)</td>
+<td class="tg-0lax"></td>
+</tr>
+<tr class="even">
+<td class="tg-0lax">Alt + Shift + K</td>
+<td class="tg-0lax">Abre la lista de ayuda de atajos de teclado</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="paquetes-librerías" class="level2">
@@ -468,6 +567,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
